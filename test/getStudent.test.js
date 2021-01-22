@@ -4,9 +4,11 @@ const {Student, sequelize } = require('../models')
 const {queryInterface} = sequelize
 const {generateToken} = require('../helpers/jwtHelper') 
 
+
+
 const registStudent = {
   name: "Student2",
-  email: 'student2@mail.com',
+  email: 'studentgetALL@mail.com',
   password: '123456',
   role: 'student',
   address: 'Jl. Mangga harum manis',
@@ -22,34 +24,52 @@ beforeAll(async (done) => {
       access_token = generateToken({id: data.id,email: data.email})
       id = data.id
     }
+    console.log(data)
     done()
   }catch(err) {
+    console.log(err)
     done(err)
   }
 })
-afterAll(async (done)=>{
-  try{
-    await queryInterface.bulkDelete('Students', null, {})
-    done()
-  }catch(err){
-    done(err)
-  }
-})
+// afterAll(async (done)=>{
+//   try{
+//     await queryInterface.bulkDelete('Students', null, {})
+//     done()
+//   }catch(err){
+//     done(err)
+//   }
+// })
 
 
 describe('Get Student GET /students', () => {
-  describe('Success register', () => {
-    test('should response with data name and email students', (done) => {
+  describe('Success getAll', () => {
+    test('should response with data All student', (done) => {
       request(app)
-        .post('/students/')
+        .get('/students/')
         .set('access_token', access_token)
         .end((err, res) => {
           const {body, status} = res
           if (err) {
             return done(err)
           }
-          expect(status).toBe(201)
-          expect(body).toHaveProperty('data', expect.any())
+          expect(status).toBe(200)
+          expect(body).toMatchObject({alldata: expect.any(Array)})
+          done()
+        })
+    })
+  })
+  describe('Success getbyId', () => {
+    test('should response with data student/:id', (done) => {
+      request(app)
+        .get('/students/' + id)
+        .set('access_token', access_token)
+        .end((err, res) => {
+          const {body, status} = res
+          if (err) {
+            return done(err)
+          }
+          expect(status).toBe(200)
+        
           done()
         })
     })

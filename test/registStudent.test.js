@@ -139,6 +139,33 @@ describe('Register Student POST /students/register', () => {
     })
   })
 
+  describe('Failed register: Validation Error (Duplicate regitester Email)', () => {
+    test('should response with error message', (done) => {
+      request(app)
+        .post('/students/register')
+        .send({
+          
+            name: "Student2",
+            email: 'student2@mail.com',
+            password: '123456',
+            role: 'student',
+            address: 'Jl. Mangga harum manis',
+            position: [-6.200000, 106.816666],
+            telpon_number: '08123456789'
+          
+        })
+        .end((err, res) => {
+          const {body, status} = res
+          if (err) {
+            return done(err)
+          }
+          expect(status).toBe(400)
+          expect(body).toHaveProperty('message',`Email has already registered`)
+          done()
+        })
+    })
+  })
+
 
   describe('Failed register: Validation Error (Required Role)', () => {
     test('should response with error message', (done) => {

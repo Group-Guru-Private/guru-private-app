@@ -11,7 +11,7 @@ class StudentController {
     Student.create({name, email, password, role, address, position, telpon_number})
       .then (data=>{
         // console.log(data)
-        res.status(201).json({id: data.id,name: data.name, email: data.email})
+        res.status(201).json({name: data.name, email: data.email})
       })
       .catch (err=>{
         if(err){
@@ -23,10 +23,13 @@ class StudentController {
           res.status(400).json({message: `${arrErrors}`} )
          
           }
-          else {
-            // console.log(err)
-            new Error(err.message)
+          else if (err.name === 'SequelizeUniqueConstraintError') {
+            res.status(400).json({message: err.message } )
+            
           }
+          else (
+            new Error(err.message)
+          )
         }
         else {
           res.status(500).json(err.message)
@@ -67,7 +70,7 @@ class StudentController {
 
     Student.findAll({})
     .then((data)=>{
-      res.status(200).json({name: data.name, email: data.email, address: data.address, phone: data.telpon_number})
+      res.status(200).json({alldata: data})
     })
     .catch((error)=>{
       // console.log(error)
@@ -81,6 +84,7 @@ class StudentController {
  
        Student.findOne({ where: {id:id} })
         .then((data)=>{
+          
           res.status(200).json({name: data.name, email: data.email, address: data.address, phone: data.telpon_number})
         })
         .catch((error)=>{
@@ -110,10 +114,28 @@ class StudentController {
         .then(() => {
             res.status(200).json({message: 'Your profile Updated'})
         })
-        .catch(err => {
-          // console.log(err)
-            return next(err)
-        })
+         .catch (err=>{
+        if(err){
+          if (err.name === 'SequelizeValidationError') {
+            let arrErrors = []
+            for (let i = 0; i < err.errors.length; i++) {
+                arrErrors.push( err.errors[i].message)
+            }
+          res.status(400).json({message: `${arrErrors}`} )
+         
+          }
+          else if (err.name === 'SequelizeUniqueConstraintError') {
+            res.status(400).json({message: err.message } )
+            
+          }
+          else (
+            new Error(err.message)
+          )
+        }
+        else {
+          res.status(500).json(err.message)
+        }
+      })
   }
 
 
