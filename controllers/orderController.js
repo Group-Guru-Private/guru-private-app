@@ -6,7 +6,8 @@ class OrderController {
       const findTeacher = await Teacher.findByPk(req.params.id)
       if (findTeacher) {
         const payload = {
-          StudentId : 1,  //req.loginStudent.id
+          // StudentId : 1,  
+          StudentId : req.loginStudent.id,
           TeacherId : findTeacher.id,
           subject : req.body.subject,
           distance : +req.body.distance,

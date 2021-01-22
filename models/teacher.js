@@ -2,7 +2,7 @@
 const {
   Model
 } = require('sequelize');
-const passHelper = require('../helpers/passwordHelper');
+const { generatePassword } = require('../helpers/passwordHelper');
 
 module.exports = (sequelize, DataTypes) => {
   class Teacher extends Model {
@@ -134,7 +134,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     hooks: {
       beforeCreate(teacher) {
-         teacher.password = passHelper.generatePassword(teacher.password)
+         teacher.password = generatePassword(teacher.password)
       }
     },
     sequelize,
