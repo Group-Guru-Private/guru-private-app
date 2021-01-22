@@ -15,6 +15,7 @@ module.exports = async (req,res,next) => {
       let id = decoded.id
       req.loginStudent = decoded
       let data = await Student.findOne({where: {id: id}})
+      console.log(data)
       if (data) {
         next()
       }
