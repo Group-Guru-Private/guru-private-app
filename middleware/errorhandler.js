@@ -1,10 +1,13 @@
-
 class ErrorHandler {
     static handle(err, req, res, next) {
       let status = 500;
       console.log(err)
       let msg = 'Internal Server Error';
-      if (err.name === 'SequelizeValidationError' || err.name === 'SequelizeUniqueConstraintError') {
+      if(err.name === 'Validation Error'){
+        const messages = err.message.map((e)=> (e.message))
+        res.status(err.status).json({messages}) 
+      } 
+      else if (err.name === 'SequelizeValidationError' || err.name === 'SequelizeUniqueConstraintError') {
         msg = err.errors.map(element => {
           return element.message;
         });
@@ -22,9 +25,9 @@ class ErrorHandler {
       } else if(err.name === 'OutOfAuthority') {
         msg = 'You are out of authority';
         status = 401;
-      }
-      res.status(status).json({ message: msg });
+      } else if (err.status) res.status(err.status).json({ message: err.message })
+      else res.status(status).json({ message: msg });
     }
   }
   
-  module.exports = ErrorHandler;
+ module.exports = ErrorHandler;

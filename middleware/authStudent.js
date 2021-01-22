@@ -27,8 +27,7 @@ module.exports = async (req,res,next) => {
 
   }
   catch(error){
-    console.log(err)
-      next(error)
+    next(error)
   }
   
 
