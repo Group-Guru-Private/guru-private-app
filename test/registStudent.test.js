@@ -1,6 +1,7 @@
 const request = require('supertest')
 const app = require('../app')
-const {Student} = require('../models')
+const {Student, sequelize } = require('../models')
+const {queryInterface} = sequelize
 
 const registStudent = {
   name: "Student2",
@@ -12,12 +13,38 @@ const registStudent = {
   telpon_number: '08123456789'
 }
 
+// beforeAll(async (registStudent) => {
+//   try {
+//     await Student.create(registStudent)
+//     done()
+//   }catch(err) {
+//     done(err)
+//   }
+// })
+afterAll(async (done)=>{
+  try{
+    await queryInterface.bulkDelete('Students', null, {})
+    done()
+  }catch(err){
+    done(err)
+  }
+})
+
+
 describe('Register Student POST /students/register', () => {
   describe('Success register', () => {
     test('should response with data name and email students', (done) => {
       request(app)
         .post('/students/register')
-        .send(registStudent)
+        .send({
+          name: "Student2",
+          email: 'student2@mail.com',
+          password: '123456',
+          role: 'student',
+          address: 'Jl. Mangga harum manis',
+          position: [-6.200000, 106.816666],
+          telpon_number: '08123456789'
+        })
         .end((err, res) => {
           const {body, status} = res
           if (err) {
