@@ -13,8 +13,8 @@ module.exports = async (req,res,next) => {
     else{
       const decoded = verifyToken(access_token)
       let id = decoded.id
-      req.loginUser = decoded
-      let data = await User.findOne({where: {id: id}})
+      req.loginStudent = decoded
+      let data = await Student.findOne({where: {id: id}})
       if (data) {
         next()
       }
