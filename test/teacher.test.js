@@ -18,48 +18,6 @@ afterAll(done=> {
     })
 })
 
-// beforeAll(done => {
-//     Teacher.create({
-//         name: 'bima',
-//         email: 'bima@mail.com',
-//         password: generatePassword('123456'),
-//         role: 'teacher',
-//         address: 'Jl. Mangga harum manis',
-//         position: [-6.200000, 106.816666],
-//         telpon_number: '08123456789',
-//         subjects: ['Mathematics', 'Chemistry'],
-//         background: 'Universitas ABC, S1 Mathematics',
-//         price: 100000
-//     })
-//       .then(admin => {
-//         token = generateToken({
-//           id: admin.id, 
-//           name: admin.name, 
-//           email: admin.email, 
-//           password: admin.password, 
-//           role: admin.role, 
-//           address: admin.address, 
-//           position: admin.position, 
-//           telpon_number: admin.telpon_number, 
-//           subjects: admin.subjects,
-//           background: admin.background,
-//           price: admin.price
-//         })
-//         return User.create({
-//             name: 'bima',
-//             email: 'bima@mail.com',
-//             password: generatePassword('123456'),
-//             role: 'teacher',
-//             address: 'Jl. Mangga harum manis',
-//             position: [-6.200000, 106.816666],
-//             telpon_number: '08123456789',
-//             subjects: ['Mathematics', 'Chemistry'],
-//             background: 'Universitas ABC, S1 Mathematics',
-//             price: 100000
-//         })
-//       })
-// })
-
 describe('test POST /teachers/register', () => {
     it('test sukses register', done => {
         request(app)
@@ -432,44 +390,5 @@ describe('test GET /teachers', () => {
             done(err)
         })
     })
-
-    describe('Test Endpoint PUT /teachers/:id', () => {
-        // Success edit product
-        it('Test edit product sukses', done => {
-          request(app)
-            .put(`/teachers/${number}`)
-            .send({
-                name: 'Admin',
-                email: 'admin@mail.com',
-                password: generatePassword('123456'),
-                role: 'teacher',
-                address: 'jakarta',
-                position: '[-6.200000, 106.816666]',
-                telpon_number: '8123456789',
-                subjects: ['Mathematics', 'Chemistry'],
-                background: 'Universitas ABC, S1 Mathematics',
-                price: 21000000
-            })
-            .then(response => {
-              const { body, status } = response;
-      
-              expect(status).toEqual(200);
-              expect(body[0]).toHaveProperty("id", expect.any(Number));
-              expect(body[0]).toHaveProperty("name", "Admin");
-              expect(body[0]).toHaveProperty("email", "admin@mail.com");
-              expect(body[0]).toHaveProperty("password", "123456");
-              expect(body[0]).toHaveProperty("role", "teacher");
-              expect(body[0]).toHaveProperty("address", "jakarta");
-              expect(body[0]).toHaveProperty("position", "[-6.200000, 106.816666]");
-              expect(body[0]).toHaveProperty("telpon_number", "8123456789");
-              expect(body[0]).toHaveProperty("subjects", ["Mathematics", "Chemistry"]);
-              expect(body[0]).toHaveProperty("background", "Universitas ABC, S1 Mathematics");
-              expect(body[0]).toHaveProperty("price", 21000000);
-              done();
-            })
-            .catch(err => {
-              done(err);
-            })
-        })
-    })
 })
+

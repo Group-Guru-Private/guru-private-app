@@ -51,19 +51,11 @@ class TeacherController {
                     throw{ name: 'WrongEmailPassword'}
                 }
                 else {
-                    const token = generateToken({
+                    const access_token = generateToken({
                         email: guru.email,
-                        password: guru.password,
-                        role: guru.role,
-                        address: guru.address,
-                        position: guru.position,
-                        telpon_number: guru.telpon_number,
-                        subjects: guru.subjects,
-                        background: guru.background,
-                        price: guru.price,
-                        rating: guru.rating
+                        id: guru.id
                     })
-                    res.status(200).json({ email: guru.email, token})
+                    res.status(200).json({ email: guru.email, access_token})
                 }
             }
         }
@@ -78,6 +70,7 @@ class TeacherController {
             res.status(200).json(teachers) 
         }
         catch(err){
+            console.log(err)
             next(err)
         }
     }
@@ -96,6 +89,26 @@ class TeacherController {
         }
         catch(err) {
             next(err)
+        }
+    }
+
+    static async getTeacherById(req, res, next) {
+        try {
+            const id = req.params.id
+            const teacher = await Teacher.findOne({
+                where: {
+                    id: id
+                }
+            })
+            console.log('nyampe')
+            if(!teacher) {
+                res.status(404).json({message : 'Teacher not Found'})
+            }
+            else {
+                res.status(200).json(teacher)
+            }
+        }catch (error) {
+            next(error)
         }
     }
 }

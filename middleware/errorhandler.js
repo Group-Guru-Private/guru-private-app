@@ -13,7 +13,7 @@ class ErrorHandler {
         });
         msg = msg.join(', ');
         status = 400;
-      } else if(err.name === 'UserUnauthorized' || err.name === 'JsonWebTokenError') {
+      } else if(err.name === 'TeacherUnauthorized' || err.name === 'JsonWebTokenError') {
         msg = 'You have no permission to access';
         status = 401;
       } else if(err.name === 'NotFound') {
