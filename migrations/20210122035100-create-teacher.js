@@ -44,6 +44,9 @@ module.exports = {
       income: {
         type: Sequelize.INTEGER
       },
+      available_status: {
+        type: Sequelize.STRING
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
