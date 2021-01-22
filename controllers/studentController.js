@@ -1,11 +1,11 @@
-const Jwt = require('../helpers/jwt') 
-const Bcrypt = require('../helpers/bcrypt')
-const { Stundent } =  require('../models')
+const {generateToken} = require('../helpers/jwtHelper') 
+const {generatePassword,verifyPassword} = require('../helpers/passwordHelper')
+const Stundent =  require('../models')
 
 class StundentController {
 
   static register (req,res,next){
-    const password = Bcrypt.hash(req.body.password)
+    const password = generatePassword(req.body.password)
     const newStundent = {
       name : req.body.name,
       email: req.body.email,
@@ -33,12 +33,12 @@ class StundentController {
         if(!data){
           res.status(401).json({message: `Account Not Found`})
         }
-       else if (Bcrypt.compare(req.body.password, data.password)){
-          const access_token = Jwt.sign({id: data.id,email: data.email})
+       else if (verifyPassword(req.body.password, data.password)){
+          const access_token = generateToken({id: data.id,email: data.email})
           res.status(200).json({access_token})
        }
         
-        else if (!Bcrypt.compare(req.body.password, data.password)){
+        else if (!verifyPassword(req.body.password, data.password)){
           res.status(404).json({message: 'Invalid Email/Password'})
           }
       })
