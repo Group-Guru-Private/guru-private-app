@@ -12,15 +12,19 @@ const registStudent = {
   position: [-6.200000, 106.816666],
   telpon_number: '08123456789'
 }
+let id = ''
 
-// beforeAll(async (registStudent) => {
-//   try {
-//     await Student.create(registStudent)
-//     done()
-//   }catch(err) {
-//     done(err)
-//   }
-// })
+beforeAll(async (done) => {
+  try {
+    const data = await Student.create(registStudent)
+    if (data) {
+      id = data.id
+    }
+    done()
+  }catch(err) {
+    done(err)
+  }
+})
 afterAll(async (done)=>{
   try{
     await queryInterface.bulkDelete('Students', null, {})
@@ -31,37 +35,39 @@ afterAll(async (done)=>{
 })
 
 
-describe('Register Student POST /students/register', () => {
-  describe('Success register', () => {
-    test('should response with data name and email students', (done) => {
+describe('EDIT Student PUT/students/edit/:id', () => {
+  describe('Success edit', () => {
+    test('should response with success message', (done) => {
       request(app)
-        .post('/students/register')
+        .put(`/students/edit/${id}`)
         .send({
-          name: "Student2",
+        
+          name: "Edit nih",
           email: 'student2@mail.com',
           password: '123456',
           role: 'student',
           address: 'Jl. Mangga harum manis',
           position: [-6.200000, 106.816666],
           telpon_number: '08123456789'
-        })
+        
+      })
         .end((err, res) => {
           const {body, status} = res
           if (err) {
             return done(err)
           }
-          expect(status).toBe(201)
-          expect(body).toHaveProperty('name', registStudent.name)
-          expect(body).toHaveProperty('email', registStudent.email)
+          expect(status).toBe(200)
+          expect(body).toHaveProperty('message','Your profile Updated')
+      
           done()
         })
     })
     
-  }),
-  describe('Failed register: Validation Error (Required: Name)', () => {
+  })
+  describe('Failed edit: Validation Error (Required: Name)', () => {
     test('should response with error message', (done) => {
       request(app)
-        .post('/students/register')
+        .put(`/students/edit/${id}`)
         .send({
         
             name: "",
@@ -85,10 +91,10 @@ describe('Register Student POST /students/register', () => {
     })
     
   })
-  describe('Failed register: Validation Error (Required Email)', () => {
+  describe('Failed edit: Validation Error (Required Email)', () => {
     test('should response with error message', (done) => {
       request(app)
-        .post('/students/register')
+        .put(`/students/edit/${id}`)
         .send({
           
             name: "Student2",
@@ -112,10 +118,10 @@ describe('Register Student POST /students/register', () => {
     })
   })
 
-  describe('Failed register: Validation Error (Invalid Email Format)', () => {
+  describe('Failed edit: Validation Error (Invalid Email Format)', () => {
     test('should response with error message', (done) => {
       request(app)
-        .post('/students/register')
+        .put(`/students/edit/${id}`)
         .send({
           
             name: "Student2",
@@ -140,10 +146,10 @@ describe('Register Student POST /students/register', () => {
   })
 
 
-  describe('Failed register: Validation Error (Required Role)', () => {
+  describe('Failed edit: Validation Error (Required Role)', () => {
     test('should response with error message', (done) => {
       request(app)
-        .post('/students/register')
+        .put(`/students/edit/${id}`)
         .send({
           
             name: "Student2",
@@ -167,10 +173,10 @@ describe('Register Student POST /students/register', () => {
     })
   })
 
-  describe('Failed register: Validation Error (Required Address)', () => {
+  describe('Failed edit: Validation Error (Required Address)', () => {
     test('should response with error message', (done) => {
       request(app)
-        .post('/students/register')
+        .put(`/students/edit/${id}`)
         .send({
           
             name: "Student2",
@@ -194,10 +200,10 @@ describe('Register Student POST /students/register', () => {
     })
   })
 
-  describe('Failed register: Validation Error (Required Telphone Number)', () => {
+  describe('Failed edit: Validation Error (Required Telphone Number)', () => {
     test('should response with error message', (done) => {
       request(app)
-        .post('/students/register')
+        .put(`/students/edit/${id}`)
         .send({
           
             name: "Student2",
@@ -221,32 +227,7 @@ describe('Register Student POST /students/register', () => {
     })
   })
 
-  describe('Failed register: Validation Error (Required Password)', () => {
-    test('should response with error message', (done) => {
-      request(app)
-        .post('/students/register')
-        .send({
-          
-            name: "Student2",
-            email: 'student2@mail.com',
-            password: '',
-            role: 'Student',
-            address: 'Jl. Mangga harum manis',
-            position: [-6.200000, 106.816666],
-            telpon_number: '12345'
-          
-        })
-        .end((err, res) => {
-          const {body, status} = res
-          if (err) {
-            return done(err)
-          }
-          expect(status).toBe(400)
-          expect(body).toHaveProperty('message',`Invalid Password`)
-          done()
-        })
-    })
-  })
+  
   
 })
 

@@ -390,40 +390,5 @@ describe('test GET /teachers', () => {
             done(err)
         })
     })
-
-    // describe('Test Endpoint PUT /teachers/:id', () => {
-    //     // Success edit product
-    //     it('Test edit product sukses', done => {
-    //       request(app)
-    //         .put(`/teachers/1`)
-    //         .send({
-    //             name: 'superman',
-    //             email: 'teacher@mail.com',
-    //             password: generatePassword('123456'),
-    //             role: 'teacher',
-    //             address: 'Jl. Mangga harum manis',
-    //             position: [-6.200000, 106.816666],
-    //             telpon_number: '08123456789',
-    //             subjects: ['Mathematics', 'Chemistry'],
-    //             background: 'Universitas ABC, S1 Mathematics',
-    //             price: 100000
-    //         })
-    //         .then(response => {
-    //             const { body, status } = response
-    //             expect(status).toEqual(201)
-    //             expect(body).toHaveProperty("id", expect.any(Number))
-    //             expect(body).toHaveProperty("name", "Sayur")
-    //             expect(body).toHaveProperty("email", "teacher@mail.com")
-    //             expect(body).toHaveProperty("role", "teacher")
-    //             expect(body).toHaveProperty("address", "Jl. Mangga harum manis")
-    //             expect(body).toHaveProperty("position", [-6.200000, 106.816666])
-    //             expect(body).toHaveProperty("telpon_number", "08123456789")
-    //             expect(body).toHaveProperty("subjects", ["Mathematics", "Chemistry"])
-    //             expect(body).toHaveProperty("background", "Universitas ABC, S1 Mathematics")
-    //             expect(body).toHaveProperty("price", 100000)
-    //             done()
-    //         })
-    //     })
-    // })
 })
 

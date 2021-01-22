@@ -1,6 +1,7 @@
 const {generateToken} = require('../helpers/jwtHelper') 
 const {generatePassword,verifyPassword} = require('../helpers/passwordHelper')
 const {Student} =  require('../models')
+const bcrypt = require('bcryptjs')
 
 class StudentController {
 
@@ -34,24 +35,31 @@ class StudentController {
   }
   static login(req,res,next){
     const email = req.body.email
+    const password = req.body.password
+    if (!password){
+      return  res.status(404).json({message: 'Please input your Password'})
+    }
+    if (!email){
+      return  res.status(404).json({message: 'Please input your Email'})
+    }
     Student.findOne({where:{email:email}})
       .then(data=>{
-        console.log(data)
+        // console.log(data)
         if(!data){
           res.status(401).json({message: `Account Not Found`})
         }
-       else if (verifyPassword(req.body.password, data.password)){
+       else if (verifyPassword(password, data.password )){
           const access_token = generateToken({id: data.id,email: data.email})
+          // console.log(access_token)
           res.status(200).json({ access_token })
        }
-        
-        else if (!verifyPassword(req.body.password, data.password)){
+        else if (!verifyPassword(password, data.password)){
           res.status(404).json({message: 'Invalid Email/Password'})
           }
       })
       .catch (err=>{
         console.log(err)
-        next(err)
+        // next(err)
       })
   }
 
@@ -85,7 +93,8 @@ class StudentController {
 
   static update(req,res,next){
 
-    const password = Bcrypt.hash(req.body.password)
+    const password = generatePassword(req.body.password)
+    
 
     const editStudent = {
       name : req.body.name,
@@ -99,7 +108,7 @@ class StudentController {
      
      const data = Student.update(editStudent, {where: {id: req.params.id},returning: true})
         .then(() => {
-            res.status(200).json(data)
+            res.status(200).json({message: 'Your profile Updated'})
         })
         .catch(err => {
           console.log(err)
