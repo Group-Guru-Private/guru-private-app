@@ -6,11 +6,11 @@ const bcrypt = require('bcryptjs')
 class StudentController {
 
   static async register (req,res,next){
-    console.log(req.body)
+    // console.log(req.body)
     const { name, email, password, role, address, position, telpon_number } = req.body
     Student.create({name, email, password, role, address, position, telpon_number})
       .then (data=>{
-        console.log(data)
+        // console.log(data)
         res.status(201).json({id: data.id,name: data.name, email: data.email})
       })
       .catch (err=>{
@@ -24,7 +24,7 @@ class StudentController {
          
           }
           else {
-            console.log(err)
+            // console.log(err)
             new Error(err.message)
           }
         }
@@ -58,19 +58,19 @@ class StudentController {
           }
       })
       .catch (err=>{
-        console.log(err)
-        // next(err)
+        // console.log(err)
+        next(err)
       })
   }
 
   static showAll(req,res,next) {
 
     Student.findAll({})
-    .then((students)=>{
-      res.status(200).json(students)
+    .then((data)=>{
+      res.status(200).json({name: data.name, email: data.email, address: data.address, phone: data.telpon_number})
     })
     .catch((error)=>{
-      console.log(error)
+      // console.log(error)
       next(error)
     }) 
       
@@ -80,8 +80,8 @@ class StudentController {
     const id = +req.params.id
  
        Student.findOne({ where: {id:id} })
-        .then((student)=>{
-          res.status(200).json(student)
+        .then((data)=>{
+          res.status(200).json({name: data.name, email: data.email, address: data.address, phone: data.telpon_number})
         })
         .catch((error)=>{
           console.log(error)
@@ -94,7 +94,7 @@ class StudentController {
   static update(req,res,next){
 
     const password = generatePassword(req.body.password)
-    
+
 
     const editStudent = {
       name : req.body.name,
@@ -111,7 +111,7 @@ class StudentController {
             res.status(200).json({message: 'Your profile Updated'})
         })
         .catch(err => {
-          console.log(err)
+          // console.log(err)
             return next(err)
         })
   }
