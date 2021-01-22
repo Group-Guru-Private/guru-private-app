@@ -2,8 +2,7 @@ const request = require('supertest')
 const app = require('../app')
 const {Student, sequelize } = require('../models')
 const {queryInterface} = sequelize
-
-
+const {generateToken} = require('../helpers/jwtHelper') 
 
 const registStudent = {
   name: "Student2",
@@ -14,24 +13,23 @@ const registStudent = {
   position: [-6.200000, 106.816666],
   telpon_number: '08123456789'
 }
-
-let access_token = ''
 let id = ''
-beforeAll(async (done)=>{
-  try{
+let access_token =''
+beforeAll(async (done) => {
+  try {
     const data = await Student.create(registStudent)
-    if(data) access_token = generateToken({id: data.id,email: data.email})
-    id = data.id
+    if (data) {
+      access_token = generateToken({id: data.id,email: data.email})
+      id = data.id
+    }
     done()
-  }catch(err){
+  }catch(err) {
     done(err)
   }
 })
 afterAll(async (done)=>{
   try{
-    await Student.destroy({
-      where: {email: registStudent.email}
-    })
+    await queryInterface.bulkDelete('Students', null, {})
     done()
   }catch(err){
     done(err)
@@ -44,15 +42,14 @@ describe('Get Student GET /students', () => {
     test('should response with data name and email students', (done) => {
       request(app)
         .post('/students/')
-        .acc({})
+        .set('access_token', access_token)
         .end((err, res) => {
           const {body, status} = res
           if (err) {
             return done(err)
           }
           expect(status).toBe(201)
-          expect(body).toHaveProperty('name', registStudent.name)
-          expect(body).toHaveProperty('email', registStudent.email)
+          expect(body).toHaveProperty('data', expect.any())
           done()
         })
     })
