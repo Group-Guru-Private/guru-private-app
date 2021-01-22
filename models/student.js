@@ -43,7 +43,7 @@ module.exports = (sequelize, DataTypes) => {
       allowNull : false,
       validate : {
         notEmpty : {
-          msg : `Role is required`
+          msg : `Password is required`
         }
       }
     },

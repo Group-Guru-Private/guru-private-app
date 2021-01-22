@@ -1,34 +1,26 @@
 const {generateToken} = require('../helpers/jwtHelper') 
 const {generatePassword,verifyPassword} = require('../helpers/passwordHelper')
-const Stundent =  require('../models')
+const {Student} =  require('../models')
 
-class StundentController {
+class StudentController {
 
-  static register (req,res,next){
-    const password = generatePassword(req.body.password)
-    const newStundent = {
-      name : req.body.name,
-      email: req.body.email,
-      password: password,
-      role: req.body.role,
-      address: req.body.address,
-      position: req.body.position,
-      telpon_number: req.body.telpon_number,
-    }
-    Stundent.create(newStundent)
+  static async register (req,res,next){
+    console.log(req.body)
+    const { name, email, password, role, address, position, telpon_number } = req.body
+    
+    Student.create({name, email, password, role, address, position, telpon_number})
       .then (data=>{
         console.log(data)
         res.status(201).json({id: data.id,name: data.name, email: data.email})
       })
       .catch (err=>{
-     
         console.log(err)
         res.status(400).json({message: 'register failed'})
       })
   }
   static login(req,res,next){
     const email = req.body.email
-    Stundent.findOne({where:{email:email}})
+    Student.findOne({where:{email:email}})
       .then(data=>{
         if(!data){
           res.status(401).json({message: `Account Not Found`})
@@ -80,7 +72,7 @@ class StundentController {
 
     const password = Bcrypt.hash(req.body.password)
 
-    const editStundent = {
+    const editStudent = {
       name : req.body.name,
       email: req.body.email,
       password: password,
@@ -90,7 +82,7 @@ class StundentController {
       telpon_number: req.body.telpon_number,
     }
      
-     const data = Student.update(editStundent, {where: {id: req.params.id},returning: true})
+     const data = Student.update(editStudent, {where: {id: req.params.id},returning: true})
         .then(() => {
             res.status(200).json(data)
         })
@@ -103,4 +95,4 @@ class StundentController {
 
 }
 
-module.exports = StundentController
+module.exports = StudentController
