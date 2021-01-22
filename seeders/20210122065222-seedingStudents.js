@@ -11,25 +11,19 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
     */
-    await queryInterface.bulkInsert('Teachers', [
+    await queryInterface.bulkInsert('Students', [
       {
-        name: 'User',
-        email: 'user@mail.com',
+        name: 'Student',
+        email: 'student@mail.com',
         password: '123456',
-        role: 'teacher',
+        role: 'student',
         address: 'Jl. Mangga harum manis',
         position: [-6.200000, 106.816666],
         telpon_number: '08123456789',
-        subjects: ['Mathematics', 'Chemistry'],
-        background: 'Universitas ABC, S1 Mathematics',
-        price: 100000,
-        rating: 4,
-        income: 0,
-        available_status: false,
         createdAt: new Date(),
         updatedAt: new Date()
       }
-    ], {})
+    ])
   },
 
   down: async (queryInterface, Sequelize) => {
@@ -39,6 +33,6 @@ module.exports = {
      * Example:
      * await queryInterface.bulkDelete('People', null, {});
      */
-    await queryInterface.bulkDelete('Teachers', null, {})
+    await queryInterface.bulkDelete('Students', null, {})
   }
 };
