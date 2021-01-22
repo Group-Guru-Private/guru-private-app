@@ -1,3 +1,4 @@
+
 class ErrorHandler {
     static handle(err, req, res, next) {
       let status = 500;
