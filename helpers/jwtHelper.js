@@ -1,7 +1,5 @@
 const jwt = require('jsonwebtoken')
 
-
-
 function generateToken(object) {
     return jwt.sign(object,'secret')
 }
