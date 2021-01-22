@@ -25,6 +25,7 @@ module.exports = {
         price: 100000,
         rating: 4,
         income: 0,
+        available_status: false,
         createdAt: new Date(),
         updatedAt: new Date()
       }

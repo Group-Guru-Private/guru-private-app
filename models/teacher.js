@@ -123,6 +123,7 @@ module.exports = (sequelize, DataTypes) => {
       }
     },
     available_status: {
+      type: DataTypes.BOOLEAN,
       validate: {
         notEmpty: {
           msg: 'available_status can not be empty'
