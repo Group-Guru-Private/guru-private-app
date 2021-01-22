@@ -1,4 +1,6 @@
 'use strict';
+
+const {generatePassword,verifyPassword} = require('../helpers/passwordHelper')
 const {
   Model
 } = require('sequelize');
@@ -14,16 +16,63 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   Student.init({
-    name: DataTypes.STRING,
-    email: DataTypes.STRING,
+    name: {
+      type : DataTypes.STRING,
+      allowNull : false,
+      validate : {
+        notEmpty : {
+          msg : `Name is required`
+        },
+      }
+    },
+    email: {
+      type : DataTypes.STRING,
+      allowNull : false,
+      validate : {
+        notEmpty : {
+          msg : `Email is required`
+        },
+        isEmail : {
+          msg : `Invalid email format`
+        }
+      }
+    },
     password: DataTypes.STRING,
-    role: DataTypes.STRING,
-    address: DataTypes.STRING,
+    role: {
+      type : DataTypes.STRING,
+      allowNull : false,
+      validate : {
+        notEmpty : {
+          msg : `Role is required`
+        }
+      }
+    },
+    address: {
+      type : DataTypes.STRING,
+      allowNull : false,
+      validate : {
+        notEmpty : {
+          msg : `Address is required`
+        }
+      }
+    },
     position: DataTypes.ARRAY(DataTypes.FLOAT),
-    telpon_number: DataTypes.STRING
+    telpon_number: {
+      type : DataTypes.STRING,
+      allowNull : false,
+      validate : {
+        notEmpty : {
+          msg : `Telphone Number is required`
+        }
+      }
+    },
   }, {
     sequelize,
     modelName: 'Student',
   });
+
+  Student.beforeCreate((instance, options) => {
+    instance.password = generatePassword(instance.password)
+   })
   return Student;
 };
