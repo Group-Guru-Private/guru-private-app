@@ -14,10 +14,12 @@ const registStudent = {
 }
 let id = ''
 
-beforeAll(async (registStudent) => {
+beforeAll(async (done) => {
   try {
     const data = await Student.create(registStudent)
-    if (data) id = data.id
+    if (data) {
+      id = data.id
+    }
     done()
   }catch(err) {
     done(err)
@@ -35,12 +37,12 @@ afterAll(async (done)=>{
 
 describe('EDIT Student PUT/students/edit/:id', () => {
   describe('Success edit', () => {
-    test('should response with data name and email students', (done) => {
+    test('should response with success message', (done) => {
       request(app)
         .put(`/students/edit/${id}`)
         .send({
         
-          name: "",
+          name: "Edit nih",
           email: 'student2@mail.com',
           password: '123456',
           role: 'student',
@@ -62,195 +64,170 @@ describe('EDIT Student PUT/students/edit/:id', () => {
     })
     
   })
-//   describe('Failed register: Validation Error (Required: Name)', () => {
-//     test('should response with error message', (done) => {
-//       request(app)
-//         .put('/students/register')
-//         .send({
+  describe('Failed edit: Validation Error (Required: Name)', () => {
+    test('should response with error message', (done) => {
+      request(app)
+        .put(`/students/edit/${id}`)
+        .send({
         
-//             name: "",
-//             email: 'student2@mail.com',
-//             password: '123456',
-//             role: 'student',
-//             address: 'Jl. Mangga harum manis',
-//             position: [-6.200000, 106.816666],
-//             telpon_number: '08123456789'
+            name: "",
+            email: 'student2@mail.com',
+            password: '123456',
+            role: 'student',
+            address: 'Jl. Mangga harum manis',
+            position: [-6.200000, 106.816666],
+            telpon_number: '08123456789'
           
-//         })
-//         .end((err, res) => {
-//           const {body, status} = res
-//           if (err) {
-//             return done(err)
-//           }
-//           expect(status).toBe(400)
-//           expect(body).toHaveProperty('message','Name is required')
-//           done()
-//         })
-//     })
+        })
+        .end((err, res) => {
+          const {body, status} = res
+          if (err) {
+            return done(err)
+          }
+          expect(status).toBe(400)
+          expect(body).toHaveProperty('message','Name is required')
+          done()
+        })
+    })
     
-//   })
-//   describe('Failed register: Validation Error (Required Email)', () => {
-//     test('should response with error message', (done) => {
-//       request(app)
-//         .put('/students/register')
-//         .send({
+  })
+  describe('Failed edit: Validation Error (Required Email)', () => {
+    test('should response with error message', (done) => {
+      request(app)
+        .put(`/students/edit/${id}`)
+        .send({
           
-//             name: "Student2",
-//             email: '',
-//             password: '123456',
-//             role: 'student',
-//             address: 'Jl. Mangga harum manis',
-//             position: [-6.200000, 106.816666],
-//             telpon_number: '08123456789'
+            name: "Student2",
+            email: '',
+            password: '123456',
+            role: 'student',
+            address: 'Jl. Mangga harum manis',
+            position: [-6.200000, 106.816666],
+            telpon_number: '08123456789'
           
-//         })
-//         .end((err, res) => {
-//           const {body, status} = res
-//           if (err) {
-//             return done(err)
-//           }
-//           expect(status).toBe(400)
-//           expect(body).toHaveProperty('message',)
-//           done()
-//         })
-//     })
-//   })
+        })
+        .end((err, res) => {
+          const {body, status} = res
+          if (err) {
+            return done(err)
+          }
+          expect(status).toBe(400)
+          expect(body).toHaveProperty('message',)
+          done()
+        })
+    })
+  })
 
-//   describe('Failed register: Validation Error (Invalid Email Format)', () => {
-//     test('should response with error message', (done) => {
-//       request(app)
-//         .put('/students/register')
-//         .send({
+  describe('Failed edit: Validation Error (Invalid Email Format)', () => {
+    test('should response with error message', (done) => {
+      request(app)
+        .put(`/students/edit/${id}`)
+        .send({
           
-//             name: "Student2",
-//             email: 'salah email',
-//             password: '123456',
-//             role: 'student',
-//             address: 'Jl. Mangga harum manis',
-//             position: [-6.200000, 106.816666],
-//             telpon_number: '08123456789'
+            name: "Student2",
+            email: 'salah email',
+            password: '123456',
+            role: 'student',
+            address: 'Jl. Mangga harum manis',
+            position: [-6.200000, 106.816666],
+            telpon_number: '08123456789'
           
-//         })
-//         .end((err, res) => {
-//           const {body, status} = res
-//           if (err) {
-//             return done(err)
-//           }
-//           expect(status).toBe(400)
-//           expect(body).toHaveProperty('message',`Invalid email format`)
-//           done()
-//         })
-//     })
-//   })
+        })
+        .end((err, res) => {
+          const {body, status} = res
+          if (err) {
+            return done(err)
+          }
+          expect(status).toBe(400)
+          expect(body).toHaveProperty('message',`Invalid email format`)
+          done()
+        })
+    })
+  })
 
 
-//   describe('Failed register: Validation Error (Required Role)', () => {
-//     test('should response with error message', (done) => {
-//       request(app)
-//         .put('/students/register')
-//         .send({
+  describe('Failed edit: Validation Error (Required Role)', () => {
+    test('should response with error message', (done) => {
+      request(app)
+        .put(`/students/edit/${id}`)
+        .send({
           
-//             name: "Student2",
-//             email: 'student2@mail.com',
-//             password: '123456',
-//             role: '',
-//             address: 'Jl. Mangga harum manis',
-//             position: [-6.200000, 106.816666],
-//             telpon_number: '08123456789'
+            name: "Student2",
+            email: 'student2@mail.com',
+            password: '123456',
+            role: '',
+            address: 'Jl. Mangga harum manis',
+            position: [-6.200000, 106.816666],
+            telpon_number: '08123456789'
           
-//         })
-//         .end((err, res) => {
-//           const {body, status} = res
-//           if (err) {
-//             return done(err)
-//           }
-//           expect(status).toBe(400)
-//           expect(body).toHaveProperty('message',"Role is required")
-//           done()
-//         })
-//     })
-//   })
+        })
+        .end((err, res) => {
+          const {body, status} = res
+          if (err) {
+            return done(err)
+          }
+          expect(status).toBe(400)
+          expect(body).toHaveProperty('message',"Role is required")
+          done()
+        })
+    })
+  })
 
-//   describe('Failed register: Validation Error (Required Address)', () => {
-//     test('should response with error message', (done) => {
-//       request(app)
-//         .put('/students/register')
-//         .send({
+  describe('Failed edit: Validation Error (Required Address)', () => {
+    test('should response with error message', (done) => {
+      request(app)
+        .put(`/students/edit/${id}`)
+        .send({
           
-//             name: "Student2",
-//             email: 'sstudent2@mail.com',
-//             password: '123456',
-//             role: 'student',
-//             address: '',
-//             position: [-6.200000, 106.816666],
-//             telpon_number: '08123456789'
+            name: "Student2",
+            email: 'sstudent2@mail.com',
+            password: '123456',
+            role: 'student',
+            address: '',
+            position: [-6.200000, 106.816666],
+            telpon_number: '08123456789'
           
-//         })
-//         .end((err, res) => {
-//           const {body, status} = res
-//           if (err) {
-//             return done(err)
-//           }
-//           expect(status).toBe(400)
-//           expect(body).toHaveProperty('message',"Address is required")
-//           done()
-//         })
-//     })
-//   })
+        })
+        .end((err, res) => {
+          const {body, status} = res
+          if (err) {
+            return done(err)
+          }
+          expect(status).toBe(400)
+          expect(body).toHaveProperty('message',"Address is required")
+          done()
+        })
+    })
+  })
 
-//   describe('Failed register: Validation Error (Required Telphone Number)', () => {
-//     test('should response with error message', (done) => {
-//       request(app)
-//         .put('/students/register')
-//         .send({
+  describe('Failed edit: Validation Error (Required Telphone Number)', () => {
+    test('should response with error message', (done) => {
+      request(app)
+        .put(`/students/edit/${id}`)
+        .send({
           
-//             name: "Student2",
-//             email: 'student2@mail.com',
-//             password: '123456',
-//             role: 'Student',
-//             address: 'Jl. Mangga harum manis',
-//             position: [-6.200000, 106.816666],
-//             telpon_number: ''
+            name: "Student2",
+            email: 'student2@mail.com',
+            password: '123456',
+            role: 'Student',
+            address: 'Jl. Mangga harum manis',
+            position: [-6.200000, 106.816666],
+            telpon_number: ''
           
-//         })
-//         .end((err, res) => {
-//           const {body, status} = res
-//           if (err) {
-//             return done(err)
-//           }
-//           expect(status).toBe(400)
-//           expect(body).toHaveProperty('message',`Telphone Number is required`)
-//           done()
-//         })
-//     })
-//   })
+        })
+        .end((err, res) => {
+          const {body, status} = res
+          if (err) {
+            return done(err)
+          }
+          expect(status).toBe(400)
+          expect(body).toHaveProperty('message',`Telphone Number is required`)
+          done()
+        })
+    })
+  })
 
-//   describe('Failed register: Validation Error (Required Password)', () => {
-//     test('should response with error message', (done) => {
-//       request(app)
-//         .put('/students/register')
-//         .send({
-          
-//             name: "Student2",
-//             email: 'student2@mail.com',
-//             password: '',
-//             role: 'Student',
-//             address: 'Jl. Mangga harum manis',
-//             position: [-6.200000, 106.816666],
-//             telpon_number: '12345'
-          
-//         })
-//         .end((err, res) => {
-//           const {body, status} = res
-//           if (err) {
-//             return done(err)
-//           }
-//           expect(status).toBe(400)
-//           expect(body).toHaveProperty('message',`Invalid Password`)
-//           done()
-//         })
-//     })
-//   })
+  
   
 })
 

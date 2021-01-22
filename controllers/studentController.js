@@ -94,6 +94,7 @@ class StudentController {
   static update(req,res,next){
 
     const password = generatePassword(req.body.password)
+    
 
     const editStudent = {
       name : req.body.name,
