@@ -1,7 +1,8 @@
+
 {
   "development": {
     "username": "postgres",
-    "password": "postgres",
+    "password": 12345,
     "database": "db_guru_private",
     "host": "127.0.0.1",
     "dialect": "postgres"
