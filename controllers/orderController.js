@@ -3,10 +3,15 @@ const {Student, Teacher, Order} = require('../models')
 class OrderController {
   static async createOrder (req, res, next) {
     try {
+      if (!req.params.id) {
+        throw {
+          status: 404,
+          message: `Data Not Found`
+        }
+      }
       const findTeacher = await Teacher.findByPk(req.params.id)
       if (findTeacher) {
         const payload = {
-          // StudentId : 1,  
           StudentId : req.loginStudent.id,
           TeacherId : findTeacher.id,
           subject : req.body.subject,
@@ -16,9 +21,18 @@ class OrderController {
         }
         const data = await Order.create(payload)
         res.status(201).json(data)
+      } else throw {
+        status: 404,
+        message: `Data Not Found`
       }
     } catch (err) {
-      res.status(500).json({ message: 'Internal Server Error'} )
+      if (err.name === 'SequelizeValidationError') {
+        next({
+          name: 'Validation Error',
+          status: 400,
+          message: err.errors
+        })
+      }else next(err)
     }
   }
   static async findAllOrder (req, res, next) {
@@ -33,26 +47,33 @@ class OrderController {
   static async getDetail (req, res, next) {
     try {
       const data = await Order.findByPk(req.params.id, {include: [Student, Teacher]})
-      res.status(200).json(data)
+      if (data) res.status(200).json(data)
+      else throw {
+        status: 404,
+        message: 'Data Not Found'
+      }
     } catch (err) {
-      res.status(500).json({ message: 'Internal Server Error'} )
+      next(err)  
     }
   }
 
   static async finishedOrder (req, res, next) {
     try {
-      const findOrder = await Order.findByPk(req.params.id)
+      const findOrder = await Order.findByPk(req.params.id, {include: [Student, Teacher]})
       if (findOrder) {
-        const payload = {...findOrder, status: true}
-        const finished = await Order.update(payload, { where: {id: req.params.id}, returning: true})
-        res.status(200).json(finished)
+        const arrPromises = [
+          Order.update({ status: true}, { where: {id: req.params.id}, returning: true}),
+          Teacher.update({ income: findOrder.Teacher.income + findOrder.total_price }, {where: {id: findOrder.TeacherId}})
+        ]
+        const finished = await Promise.all(arrPromises)
+        if (finished?.length) res.status(200).json(finished[0][1][0])
       }
     } catch (err) {
       res.status(500).json({ message: 'Internal Server Error'} )
     }
   }
   static async cancelOrder (req, res, next) {
-    try { //perlu authorization 
+    try {
       const data = await Order.destroy({ where: {id: req.params.id }})
       res.status(200).json({ message: `Successfully deleted this order !!!` })
     } catch (err) {
