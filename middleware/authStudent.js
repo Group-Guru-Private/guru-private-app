@@ -1,6 +1,6 @@
 
 const { verifyToken } = require('../helpers/jwtHelper')
-const {Student} = require('../models')
+const { Student } = require('../models')
 
 module.exports = async (req,res,next) => {
   try {
@@ -28,11 +28,7 @@ module.exports = async (req,res,next) => {
   }
   catch(error){
     console.log(err)
-
       next(error)
-
-    
-
   }
   
 
