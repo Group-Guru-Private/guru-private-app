@@ -57,7 +57,7 @@ describe('Register Student POST /students/register', () => {
         })
     })
     
-  }),
+  })
   describe('Failed register: Validation Error (Required: Name)', () => {
     test('should response with error message', (done) => {
       request(app)
