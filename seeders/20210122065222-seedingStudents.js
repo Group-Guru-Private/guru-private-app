@@ -1,4 +1,5 @@
 'use strict';
+const {generatePassword} = require('../helpers/passwordHelper')
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
@@ -15,7 +16,7 @@ module.exports = {
       {
         name: 'Student',
         email: 'student@mail.com',
-        password: '123456',
+        password: generatePassword('123456'),
         role: 'student',
         address: 'Jl. Mangga harum manis',
         position: [-6.200000, 106.816666],
