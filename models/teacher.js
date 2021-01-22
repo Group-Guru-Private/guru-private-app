@@ -2,7 +2,10 @@
 const {
   Model
 } = require('sequelize');
-const {generatePassword,verifyPassword} = require('../helpers/passwordHelper')
+
+const { generatePassword } = require('../helpers/passwordHelper');
+
+
 module.exports = (sequelize, DataTypes) => {
   class Teacher extends Model {
     /**

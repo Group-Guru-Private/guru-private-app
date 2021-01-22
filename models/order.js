@@ -11,6 +11,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      Order.belongsTo(models.Student)
+      Order.belongsTo(models.Teacher)
     }
   };
   Order.init({
@@ -23,6 +25,12 @@ module.exports = (sequelize, DataTypes) => {
     date: DataTypes.STRING,
     rating: DataTypes.INTEGER
   }, {
+    hooks: {
+      beforeCreate (instance) {
+        instance.status = false
+        instance.rating = 0
+      }
+    },
     sequelize,
     modelName: 'Order',
   });
