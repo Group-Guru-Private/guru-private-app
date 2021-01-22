@@ -2,6 +2,7 @@ const request = require('supertest')
 const app = require('../app')
 const {Student, sequelize } = require('../models')
 const {queryInterface} = sequelize
+const {generateToken} = require('../helpers/jwtHelper') 
 
 const registStudent = {
   name: "Student2",
@@ -13,11 +14,12 @@ const registStudent = {
   telpon_number: '08123456789'
 }
 let id = ''
-
+let access_token =''
 beforeAll(async (done) => {
   try {
     const data = await Student.create(registStudent)
     if (data) {
+      access_token = generateToken({id: data.id,email: data.email})
       id = data.id
     }
     done()
@@ -40,6 +42,7 @@ describe('EDIT Student PUT/students/edit/:id', () => {
     test('should response with success message', (done) => {
       request(app)
         .put(`/students/edit/${id}`)
+        .set('access_token', access_token)
         .send({
         
           name: "Edit nih",
@@ -68,6 +71,7 @@ describe('EDIT Student PUT/students/edit/:id', () => {
     test('should response with error message', (done) => {
       request(app)
         .put(`/students/edit/${id}`)
+        .set('access_token', access_token)
         .send({
         
             name: "",
@@ -95,6 +99,7 @@ describe('EDIT Student PUT/students/edit/:id', () => {
     test('should response with error message', (done) => {
       request(app)
         .put(`/students/edit/${id}`)
+        .set('access_token', access_token)
         .send({
           
             name: "Student2",
@@ -122,6 +127,7 @@ describe('EDIT Student PUT/students/edit/:id', () => {
     test('should response with error message', (done) => {
       request(app)
         .put(`/students/edit/${id}`)
+        .set('access_token', access_token)
         .send({
           
             name: "Student2",
@@ -150,6 +156,7 @@ describe('EDIT Student PUT/students/edit/:id', () => {
     test('should response with error message', (done) => {
       request(app)
         .put(`/students/edit/${id}`)
+        .set('access_token', access_token)
         .send({
           
             name: "Student2",
@@ -177,6 +184,7 @@ describe('EDIT Student PUT/students/edit/:id', () => {
     test('should response with error message', (done) => {
       request(app)
         .put(`/students/edit/${id}`)
+        .set('access_token', access_token)
         .send({
           
             name: "Student2",
@@ -204,6 +212,7 @@ describe('EDIT Student PUT/students/edit/:id', () => {
     test('should response with error message', (done) => {
       request(app)
         .put(`/students/edit/${id}`)
+        .set('access_token', access_token)
         .send({
           
             name: "Student2",
