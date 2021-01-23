@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1611393915930" clover="3.2.0">
-  <project timestamp="1611393915930" name="All files">
-    <metrics statements="283" coveredstatements="256" conditionals="81" coveredconditionals="60" methods="47" coveredmethods="43" elements="411" coveredelements="359" complexity="0" loc="283" ncloc="283" packages="6" files="18" classes="18"/>
+<coverage generated="1611398731918" clover="3.2.0">
+  <project timestamp="1611398731919" name="All files">
+    <metrics statements="274" coveredstatements="258" conditionals="73" coveredconditionals="56" methods="47" coveredmethods="44" elements="394" coveredelements="358" complexity="0" loc="274" ncloc="274" packages="6" files="18" classes="18"/>
     <package name="guru-private-server">
       <metrics statements="13" coveredstatements="13" conditionals="2" coveredconditionals="1" methods="0" coveredmethods="0"/>
-      <file name="app.js" path="/home/litha/Documents/Hacktiv8/Phase 3/guru-private-server/app.js">
+      <file name="app.js" path="/Users/bimakrishna/Desktop/Final Project/guru-private-server/app.js">
         <metrics statements="13" coveredstatements="13" conditionals="2" coveredconditionals="1" methods="0" coveredmethods="0"/>
         <line num="1" count="13" type="cond" truecount="1" falsecount="1"/>
         <line num="2" count="13" type="stmt"/>
@@ -22,8 +22,8 @@
       </file>
     </package>
     <package name="guru-private-server.controllers">
-      <metrics statements="117" coveredstatements="101" conditionals="40" coveredconditionals="29" methods="25" coveredmethods="21"/>
-      <file name="orderController.js" path="/home/litha/Documents/Hacktiv8/Phase 3/guru-private-server/controllers/orderController.js">
+      <metrics statements="116" coveredstatements="105" conditionals="40" coveredconditionals="30" methods="25" coveredmethods="22"/>
+      <file name="orderController.js" path="/Users/bimakrishna/Desktop/Final Project/guru-private-server/controllers/orderController.js">
         <metrics statements="32" coveredstatements="29" conditionals="12" coveredconditionals="10" methods="5" coveredmethods="5"/>
         <line num="1" count="13" type="stmt"/>
         <line num="5" count="3" type="stmt"/>
@@ -58,7 +58,7 @@
         <line num="74" count="0" type="stmt"/>
         <line num="79" count="13" type="stmt"/>
       </file>
-      <file name="studentController.js" path="/home/litha/Documents/Hacktiv8/Phase 3/guru-private-server/controllers/studentController.js">
+      <file name="studentController.js" path="/Users/bimakrishna/Desktop/Final Project/guru-private-server/controllers/studentController.js">
         <metrics statements="50" coveredstatements="45" conditionals="22" coveredconditionals="15" methods="15" coveredmethods="12"/>
         <line num="1" count="13" type="stmt"/>
         <line num="2" count="13" type="stmt"/>
@@ -111,8 +111,8 @@
         <line num="101" count="6" type="stmt"/>
         <line num="107" count="13" type="stmt"/>
       </file>
-      <file name="teacherController.js" path="/home/litha/Documents/Hacktiv8/Phase 3/guru-private-server/controllers/teacherController.js">
-        <metrics statements="35" coveredstatements="27" conditionals="6" coveredconditionals="4" methods="5" coveredmethods="4"/>
+      <file name="teacherController.js" path="/Users/bimakrishna/Desktop/Final Project/guru-private-server/controllers/teacherController.js">
+        <metrics statements="34" coveredstatements="31" conditionals="6" coveredconditionals="5" methods="5" coveredmethods="5"/>
         <line num="1" count="13" type="stmt"/>
         <line num="2" count="13" type="stmt"/>
         <line num="3" count="13" type="stmt"/>
@@ -139,27 +139,26 @@
         <line num="76" count="12" type="stmt"/>
         <line num="77" count="12" type="stmt"/>
         <line num="85" count="1" type="stmt"/>
-        <line num="88" count="11" type="stmt"/>
-        <line num="93" count="0" type="stmt"/>
-        <line num="94" count="0" type="stmt"/>
-        <line num="95" count="0" type="stmt"/>
-        <line num="100" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="101" count="0" type="stmt"/>
-        <line num="107" count="0" type="stmt"/>
-        <line num="110" count="0" type="stmt"/>
-        <line num="115" count="13" type="stmt"/>
+        <line num="87" count="11" type="stmt"/>
+        <line num="92" count="1" type="stmt"/>
+        <line num="93" count="1" type="stmt"/>
+        <line num="94" count="1" type="stmt"/>
+        <line num="99" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="100" count="0" type="stmt"/>
+        <line num="102" count="0" type="stmt"/>
+        <line num="107" count="13" type="stmt"/>
       </file>
     </package>
     <package name="guru-private-server.helpers">
       <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
-      <file name="jwtHelper.js" path="/home/litha/Documents/Hacktiv8/Phase 3/guru-private-server/helpers/jwtHelper.js">
+      <file name="jwtHelper.js" path="/Users/bimakrishna/Desktop/Final Project/guru-private-server/helpers/jwtHelper.js">
         <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
         <line num="1" count="13" type="stmt"/>
         <line num="4" count="11" type="stmt"/>
         <line num="8" count="26" type="stmt"/>
         <line num="11" count="13" type="stmt"/>
       </file>
-      <file name="passwordHelper.js" path="/home/litha/Documents/Hacktiv8/Phase 3/guru-private-server/helpers/passwordHelper.js">
+      <file name="passwordHelper.js" path="/Users/bimakrishna/Desktop/Final Project/guru-private-server/helpers/passwordHelper.js">
         <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
         <line num="1" count="13" type="stmt"/>
         <line num="4" count="68" type="stmt"/>
@@ -170,8 +169,8 @@
       </file>
     </package>
     <package name="guru-private-server.middleware">
-      <metrics statements="60" coveredstatements="50" conditionals="30" coveredconditionals="24" methods="6" coveredmethods="6"/>
-      <file name="authStudent.js" path="/home/litha/Documents/Hacktiv8/Phase 3/guru-private-server/middleware/authStudent.js">
+      <metrics statements="52" coveredstatements="48" conditionals="22" coveredconditionals="19" methods="6" coveredmethods="6"/>
+      <file name="authStudent.js" path="/Users/bimakrishna/Desktop/Final Project/guru-private-server/middleware/authStudent.js">
         <metrics statements="15" coveredstatements="14" conditionals="4" coveredconditionals="3" methods="1" coveredmethods="1"/>
         <line num="2" count="13" type="stmt"/>
         <line num="3" count="13" type="stmt"/>
@@ -189,24 +188,25 @@
         <line num="23" count="0" type="stmt"/>
         <line num="31" count="3" type="stmt"/>
       </file>
-      <file name="authTeacher.js" path="/home/litha/Documents/Hacktiv8/Phase 3/guru-private-server/middleware/authTeacher.js">
-        <metrics statements="14" coveredstatements="11" conditionals="4" coveredconditionals="2" methods="1" coveredmethods="1"/>
+      <file name="authTeacher.js" path="/Users/bimakrishna/Desktop/Final Project/guru-private-server/middleware/authTeacher.js">
+        <metrics statements="15" coveredstatements="12" conditionals="4" coveredconditionals="2" methods="1" coveredmethods="1"/>
         <line num="1" count="13" type="stmt"/>
         <line num="2" count="13" type="stmt"/>
         <line num="6" count="12" type="stmt"/>
         <line num="7" count="12" type="stmt"/>
         <line num="8" count="12" type="cond" truecount="1" falsecount="1"/>
         <line num="9" count="0" type="stmt"/>
-        <line num="12" count="12" type="stmt"/>
-        <line num="13" count="12" type="stmt"/>
-        <line num="19" count="12" type="cond" truecount="1" falsecount="1"/>
-        <line num="20" count="12" type="stmt"/>
-        <line num="21" count="12" type="stmt"/>
+        <line num="14" count="12" type="stmt"/>
+        <line num="15" count="12" type="stmt"/>
+        <line num="16" count="12" type="stmt"/>
+        <line num="17" count="12" type="stmt"/>
+        <line num="18" count="12" type="cond" truecount="1" falsecount="1"/>
+        <line num="19" count="12" type="stmt"/>
         <line num="22" count="0" type="stmt"/>
-        <line num="26" count="0" type="stmt"/>
-        <line num="31" count="13" type="stmt"/>
+        <line num="29" count="0" type="stmt"/>
+        <line num="34" count="13" type="stmt"/>
       </file>
-      <file name="authorizationOrder.js" path="/home/litha/Documents/Hacktiv8/Phase 3/guru-private-server/middleware/authorizationOrder.js">
+      <file name="authorizationOrder.js" path="/Users/bimakrishna/Desktop/Final Project/guru-private-server/middleware/authorizationOrder.js">
         <metrics statements="7" coveredstatements="7" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
         <line num="1" count="13" type="stmt"/>
         <line num="3" count="13" type="stmt"/>
@@ -216,8 +216,8 @@
         <line num="12" count="2" type="stmt"/>
         <line num="17" count="2" type="stmt"/>
       </file>
-      <file name="errorhandler.js" path="/home/litha/Documents/Hacktiv8/Phase 3/guru-private-server/middleware/errorhandler.js">
-        <metrics statements="24" coveredstatements="18" conditionals="20" coveredconditionals="17" methods="3" coveredmethods="3"/>
+      <file name="errorhandler.js" path="/Users/bimakrishna/Desktop/Final Project/guru-private-server/middleware/errorhandler.js">
+        <metrics statements="15" coveredstatements="15" conditionals="12" coveredconditionals="12" methods="3" coveredmethods="3"/>
         <line num="3" count="54" type="cond" truecount="2" falsecount="0"/>
         <line num="4" count="54" type="cond" truecount="2" falsecount="0"/>
         <line num="5" count="54" type="cond" truecount="2" falsecount="0"/>
@@ -228,25 +228,16 @@
         <line num="11" count="37" type="stmt"/>
         <line num="13" count="24" type="stmt"/>
         <line num="14" count="24" type="stmt"/>
-        <line num="15" count="29" type="cond" truecount="3" falsecount="1"/>
-        <line num="16" count="0" type="stmt"/>
-        <line num="17" count="0" type="stmt"/>
-        <line num="18" count="29" type="cond" truecount="1" falsecount="1"/>
-        <line num="19" count="0" type="stmt"/>
-        <line num="20" count="0" type="stmt"/>
-        <line num="21" count="29" type="cond" truecount="2" falsecount="0"/>
-        <line num="22" count="4" type="stmt"/>
-        <line num="23" count="4" type="stmt"/>
-        <line num="24" count="25" type="cond" truecount="1" falsecount="1"/>
-        <line num="25" count="0" type="stmt"/>
-        <line num="26" count="0" type="stmt"/>
-        <line num="28" count="54" type="stmt"/>
-        <line num="32" count="13" type="stmt"/>
+        <line num="15" count="29" type="cond" truecount="2" falsecount="0"/>
+        <line num="16" count="4" type="stmt"/>
+        <line num="17" count="4" type="stmt"/>
+        <line num="19" count="54" type="stmt"/>
+        <line num="23" count="13" type="stmt"/>
       </file>
     </package>
     <package name="guru-private-server.models">
       <metrics statements="43" coveredstatements="42" conditionals="9" coveredconditionals="6" methods="12" coveredmethods="12"/>
-      <file name="index.js" path="/home/litha/Documents/Hacktiv8/Phase 3/guru-private-server/models/index.js">
+      <file name="index.js" path="/Users/bimakrishna/Desktop/Final Project/guru-private-server/models/index.js">
         <metrics statements="20" coveredstatements="19" conditionals="9" coveredconditionals="6" methods="3" coveredmethods="3"/>
         <line num="3" count="13" type="stmt"/>
         <line num="4" count="13" type="stmt"/>
@@ -269,7 +260,7 @@
         <line num="35" count="13" type="stmt"/>
         <line num="37" count="13" type="stmt"/>
       </file>
-      <file name="order.js" path="/home/litha/Documents/Hacktiv8/Phase 3/guru-private-server/models/order.js">
+      <file name="order.js" path="/Users/bimakrishna/Desktop/Final Project/guru-private-server/models/order.js">
         <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
         <line num="4" count="13" type="stmt"/>
         <line num="5" count="13" type="stmt"/>
@@ -280,7 +271,7 @@
         <line num="61" count="5" type="stmt"/>
         <line num="67" count="13" type="stmt"/>
       </file>
-      <file name="student.js" path="/home/litha/Documents/Hacktiv8/Phase 3/guru-private-server/models/student.js">
+      <file name="student.js" path="/Users/bimakrishna/Desktop/Final Project/guru-private-server/models/student.js">
         <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
         <line num="3" count="13" type="stmt"/>
         <line num="6" count="13" type="stmt"/>
@@ -291,7 +282,7 @@
         <line num="88" count="12" type="stmt"/>
         <line num="90" count="13" type="stmt"/>
       </file>
-      <file name="teacher.js" path="/home/litha/Documents/Hacktiv8/Phase 3/guru-private-server/models/teacher.js">
+      <file name="teacher.js" path="/Users/bimakrishna/Desktop/Final Project/guru-private-server/models/teacher.js">
         <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
         <line num="4" count="13" type="stmt"/>
         <line num="6" count="13" type="stmt"/>
@@ -304,7 +295,7 @@
     </package>
     <package name="guru-private-server.routes">
       <metrics statements="40" coveredstatements="40" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-      <file name="index.js" path="/home/litha/Documents/Hacktiv8/Phase 3/guru-private-server/routes/index.js">
+      <file name="index.js" path="/Users/bimakrishna/Desktop/Final Project/guru-private-server/routes/index.js">
         <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="13" type="stmt"/>
         <line num="2" count="13" type="stmt"/>
@@ -315,7 +306,7 @@
         <line num="8" count="13" type="stmt"/>
         <line num="10" count="13" type="stmt"/>
       </file>
-      <file name="orders.js" path="/home/litha/Documents/Hacktiv8/Phase 3/guru-private-server/routes/orders.js">
+      <file name="orders.js" path="/Users/bimakrishna/Desktop/Final Project/guru-private-server/routes/orders.js">
         <metrics statements="12" coveredstatements="12" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="13" type="stmt"/>
         <line num="2" count="13" type="stmt"/>
@@ -330,7 +321,7 @@
         <line num="15" count="13" type="stmt"/>
         <line num="17" count="13" type="stmt"/>
       </file>
-      <file name="students.js" path="/home/litha/Documents/Hacktiv8/Phase 3/guru-private-server/routes/students.js">
+      <file name="students.js" path="/Users/bimakrishna/Desktop/Final Project/guru-private-server/routes/students.js">
         <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="13" type="stmt"/>
         <line num="2" count="13" type="stmt"/>
@@ -343,7 +334,7 @@
         <line num="12" count="13" type="stmt"/>
         <line num="17" count="13" type="stmt"/>
       </file>
-      <file name="teachers.js" path="/home/litha/Documents/Hacktiv8/Phase 3/guru-private-server/routes/teachers.js">
+      <file name="teachers.js" path="/Users/bimakrishna/Desktop/Final Project/guru-private-server/routes/teachers.js">
         <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="13" type="stmt"/>
         <line num="2" count="13" type="stmt"/>
@@ -351,7 +342,7 @@
         <line num="5" count="13" type="stmt"/>
         <line num="6" count="13" type="stmt"/>
         <line num="7" count="13" type="stmt"/>
-        <line num="9" count="13" type="stmt"/>
+        <line num="8" count="13" type="stmt"/>
         <line num="10" count="13" type="stmt"/>
         <line num="11" count="13" type="stmt"/>
         <line num="13" count="13" type="stmt"/>
