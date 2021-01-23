@@ -4,8 +4,6 @@ const {Student, sequelize } = require('../models')
 const {queryInterface} = sequelize
 const {generateToken} = require('../helpers/jwtHelper') 
 
-
-
 const registStudent = {
   name: "Student2",
   email: 'studentgetALL@mail.com',
@@ -31,14 +29,16 @@ beforeAll(async (done) => {
     done(err)
   }
 })
-// afterAll(async (done)=>{
-//   try{
-//     await queryInterface.bulkDelete('Students', null, {})
-//     done()
-//   }catch(err){
-//     done(err)
-//   }
-// })
+afterAll(async (done)=>{
+  try{
+    await Student.destroy({
+      where: {email: registStudent.email}
+    })    
+    done()
+  }catch(err){
+    done(err)
+  }
+})
 
 
 describe('Get Student GET /students', () => {
