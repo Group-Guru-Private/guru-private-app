@@ -26,6 +26,7 @@ module.exports = {
         rating: 4,
         income: 0,
         available_status: false,
+        image_url: 'https://www.abadikini.com/media/files/2019/09/IMG_20190908_191823-390x220.jpg',
         createdAt: new Date(),
         updatedAt: new Date()
       }

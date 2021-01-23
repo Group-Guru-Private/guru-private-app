@@ -125,6 +125,14 @@ module.exports = (sequelize, DataTypes) => {
         }
       }
     },
+    image_url: {
+      type: DataTypes.STRING,
+      validate: {
+        notEmpty: {
+          msg: 'image url can not be empty'
+        }
+      }
+    },
     available_status: {
       type: DataTypes.BOOLEAN,
       validate: {
