@@ -12,17 +12,8 @@ class ErrorHandler {
         });
         msg = msg.join(', ');
         status = 400;
-      } else if(err.name === 'TeacherUnauthorized' || err.name === 'JsonWebTokenError') {
-        msg = 'You have no permission to access';
-        status = 401;
-      } else if(err.name === 'NotFound') {
-        msg = 'Error, not found';
-        status = 404;
       } else if(err.name === 'WrongEmailPassword') {
         msg = 'Email/password incorrect';
-        status = 401;
-      } else if(err.name === 'OutOfAuthority') {
-        msg = 'You are out of authority';
         status = 401;
       }
       res.status(status).json({ message: msg });

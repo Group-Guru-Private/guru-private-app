@@ -67,4 +67,19 @@ describe('test GET /teachers', () => {
             done(err)
         })
     })
+
+    describe('Success getbyid', () => {
+        test('should response with success message', (done) => {
+            request(app)
+            .get(`/teachers/${id_teacher}`)
+            .end((err, res) => {
+                const {body, status} = res
+                if (err) {
+                return done(err)
+                }
+                expect(status).toBe(200)
+                done()
+            })
+        })
+      })
 })
