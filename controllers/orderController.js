@@ -66,7 +66,7 @@ class OrderController {
           Teacher.update({ income: findOrder.Teacher.income + findOrder.total_price }, {where: {id: findOrder.TeacherId}})
         ]
         const finished = await Promise.all(arrPromises)
-        // if (finished?.length) res.status(200).json(finished[0][1][0])
+        if (finished && finished.length) res.status(200).json(finished[0][1][0])
       }
     } catch (err) {
       res.status(500).json({ message: 'Internal Server Error'} )
