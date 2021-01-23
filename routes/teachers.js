@@ -5,6 +5,8 @@ const authTeacher = require('../middleware/authTeacher')
 router.get('/',  TeacherController.findAll)
 router.post('/register', TeacherController.register)
 router.post('/login', TeacherController.login)
+
+router.use(authTeacher.user)
 router.get('/:id', TeacherController.getTeacherById)
 router.put('/:id', TeacherController.editProfile)
 
