@@ -15,7 +15,7 @@ module.exports = async (req,res,next) => {
       let id = decoded.id
       req.loginStudent = decoded
       let data = await Student.findOne({where: {id: id}})
-      console.log(data)
+      // console.log(data)
       if (data) {
         next()
       }
@@ -25,15 +25,9 @@ module.exports = async (req,res,next) => {
           message: `Account not found`}
       }
     }
-
   }
   catch(error){
-
-    console.log(error)
-      next(error)
-
+    // console.log(error)
+    next(error)
   }
-  
-
-
 }

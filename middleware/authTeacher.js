@@ -4,25 +4,22 @@ const { Teacher } = require('../models/index')
 class authTeacher {
     static async user(req, res, next) {
         try {
-            const { token } = req.headers
-            if(!token) {
+            const { access_token } = req.headers
+            if(!access_token) {
                 throw { name: 'TeacherUnauthorized'}
             }
             else {
-                const decoded = verifyToken(token)
+                const decoded = verifyToken(access_token)
                 const teacher = await Teacher.findOne({
                     where: {
                         id: decoded.id,
-                        email: decoded.email
+                        // email: decoded.email
                     }
                 })
-                if(!teacher) {
-                    throw { name: 'TeacherUnauthorized' } 
-                }
-                else {
+                if (teacher) {
                     req.loginTeacher = decoded
                     next()
-                }
+                } else throw { name: 'TeacherUnauthorized' } 
             }
         }
         catch(err) {

@@ -3,12 +3,6 @@ const {Student, Teacher, Order} = require('../models')
 class OrderController {
   static async createOrder (req, res, next) {
     try {
-      if (!req.params.id) {
-        throw {
-          status: 404,
-          message: `Data Not Found`
-        }
-      }
       const findTeacher = await Teacher.findByPk(req.params.id)
       if (findTeacher) {
         const payload = {
@@ -40,7 +34,7 @@ class OrderController {
       const data = await Order.findAll({ include: [Student, Teacher] })
       res.status(200).json(data)
     } catch (err) {
-      res.status(500).json({ message: 'Internal Server Error'} )
+      next (err)
     }
   }
 
@@ -69,7 +63,7 @@ class OrderController {
         if (finished && finished.length) res.status(200).json(finished[0][1][0])
       }
     } catch (err) {
-      res.status(500).json({ message: 'Internal Server Error'} )
+      next (err)
     }
   }
   static async cancelOrder (req, res, next) {
@@ -77,7 +71,7 @@ class OrderController {
       const data = await Order.destroy({ where: {id: req.params.id }})
       res.status(200).json({ message: `Successfully deleted this order !!!` })
     } catch (err) {
-      res.status(500).json({ message: 'Internal Server Error'} )
+      next (err)
     }
   }
 }

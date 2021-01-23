@@ -5,10 +5,7 @@ const { generateToken, verifyToken } = require('../helpers/jwtHelper')
 class TeacherController {
     static async register (req, res, next) {
         try {
-            console.log('samoe kan tapi iiiiii');
-            
             const { name, email, password, role, address, position, telpon_number, subjects, background, price, image_url } = req.body
-            console.log(name)
             const newTeacher = await Teacher.create({
                 name, email, password, role, address, position, telpon_number, subjects, background, price, available_status:false, income:0, rating: 0, image_url
             })
@@ -29,7 +26,6 @@ class TeacherController {
             })
         }
         catch(err) {
-            console.log(err)
             next(err)
         }
     }
@@ -71,7 +67,6 @@ class TeacherController {
             res.status(200).json(teachers) 
         }
         catch(err){
-            console.log(err)
             next(err)
         }
     }
@@ -79,35 +74,30 @@ class TeacherController {
     static async editProfile (req, res, next) {
         try {
             const { name, email, password, role, address, position, telpon_number, subjects, background, price, image_url } = req.body
-            const profileUpdated = await Teacher.update({
-                name, email, password, role, address, position, telpon_number, subjects, background, price, image_url
-            }, {
+            const profileUpdated = await Teacher.update(
+            { name, email, password, role, address, position, telpon_number, subjects, background, price, image_url }, 
+            {
                 where: {
                     id: req.params.id
-                }, returning: true
+                }, 
+                returning: true
             })
             res.status(200).json(profileUpdated[1])
-        }
-        catch(err) {
+        } catch(err) {
             next(err)
         }
     }
 
     static async getTeacherById(req, res, next) {
         try {
-            const id = req.params.id
+            const id = +req.params.id
             const teacher = await Teacher.findOne({
                 where: {
                     id: id
                 }
             })
-            console.log('nyampe')
-            if(!teacher) {
-                res.status(404).json({message : 'Teacher not Found'})
-            }
-            else {
-                res.status(200).json(teacher)
-            }
+            if (teacher) res.status(200).json(teacher)
+            else throw {status: 404, message: 'Teacher not Found'}
         }catch (error) {
             next(error)
         }
