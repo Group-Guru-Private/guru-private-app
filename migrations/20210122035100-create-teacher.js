@@ -48,6 +48,9 @@ module.exports = {
       available_status: {
         type: Sequelize.BOOLEAN
       },
+      image_url: {
+        type: Sequelize.STRING
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

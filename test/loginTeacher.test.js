@@ -62,5 +62,77 @@ describe('test POST /teacher login', () => {
             done(err)
         })
     })
+
+    it('test failed login with empty email', done => {
+        request(app)
+        .post('/teachers/login')
+        .send({
+            email: '',
+            password: registTeacher.password
+        })
+        .then(response => {
+            const {body, status} = response
+            expect(status).toEqual(401)
+            expect(body).toHaveProperty("message", "Email/password incorrect")
+            done()
+        })
+        .catch(err => {
+            done(err)
+        })
+    })
+
+    it('test failed login with empty email', done => {
+        request(app)
+        .post('/teachers/login')
+        .send({
+            email: registTeacher.email,
+            password: ''
+        })
+        .then(response => {
+            const {body, status} = response
+            expect(status).toEqual(401)
+            expect(body).toHaveProperty("message", "Email/password incorrect")
+            done()
+        })
+        .catch(err => {
+            done(err)
+        })
+    })
+
+    it('test failed login with invalid password', done => {
+        request(app)
+        .post('/teachers/login')
+        .send({
+            email: registTeacher.email,
+            password: '1234'
+        })
+        .then(response => {
+            const {body, status} = response
+            expect(status).toEqual(401)
+            expect(body).toHaveProperty("message", "Email/password incorrect")
+            done()
+        })
+        .catch(err => {
+            done(err)
+        })
+    })
+
+    it('test failed login with invalid email', done => {
+        request(app)
+        .post('/teachers/login')
+        .send({
+            email: 'bukan@mail.com',
+            password: registTeacher.password
+        })
+        .then(response => {
+            const {body, status} = response
+            expect(status).toEqual(401)
+            expect(body).toHaveProperty("message", "Email/password incorrect")
+            done()
+        })
+        .catch(err => {
+            done(err)
+        })
+    })
 })
 
