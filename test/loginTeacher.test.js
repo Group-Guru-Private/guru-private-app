@@ -55,7 +55,7 @@ describe('test POST /teacher login', () => {
         .then(response => {
             const {body, status} = response
             expect(status).toEqual(200)
-            // expect(body).toHaveProperty("access_token", expect.anything())
+            expect(body).toHaveProperty("access_token", expect.anything())
             done()
         })
         .catch(err => {
