@@ -1,4 +1,6 @@
 const {Student, Teacher, Order} = require('../models')
+const midtransClient = require('midtrans-client')
+const axios = require('axios')
 
 class OrderController {
   static async createOrder (req, res, next) {
@@ -56,11 +58,46 @@ class OrderController {
       const findOrder = await Order.findByPk(req.params.id, {include: [Student, Teacher]})
       if (findOrder) {
         const arrPromises = [
-          Order.update({ status: true}, { where: {id: req.params.id}, returning: true}),
+          Order.update({ status: true}, { where: {id: req.params.id}, returning: true, include: [Student, Teacher]}),
           Teacher.update({ income: findOrder.Teacher.income + findOrder.total_price }, {where: {id: findOrder.TeacherId}})
         ]
         const finished = await Promise.all(arrPromises)
-        if (finished && finished.length) res.status(200).json(finished[0][1][0])
+        let paramater = {
+          transaction_details: {
+            order_id: 'order-private-' + findOrder.Teacher.name + Math.ceil(Math.random() * 10000),
+            gross_amount: findOrder.total_price
+          },
+          enabled_payments: ['gopay', 'credit_card', 'shopeepay'],
+          credit_card: {
+            secure: true
+          },
+          customer_details: {
+            first_name: findOrder.Student.name,
+            email: findOrder.Student.email,
+            phone: findOrder.Student.telpon_number,
+            shipping_address: {
+              address: findOrder.Student.address
+            }
+          }
+        }
+        // const transaction = await axios({
+        //   method: 'POST',
+        //   url: 'https://app.sandbox.midtrans.com/snap/v1/transactions',
+        //   data: paramater,
+        //   headers: {
+        //     'Accept': 'application/json',
+        //     'Content-Type': 'application/json',
+        //     'Authorization': 'Basic U0ItTWlkLXNlcnZlci1NM3BGTkFPWWN3NzNmUHdGcEFPamdtV0k6'
+        //   }
+        // })
+        // console.log(transaction.data.token)
+        let snap = new midtransClient.Snap({
+          isProduction: false,
+          serverKey: 'SB-Mid-server-M3pFNAOYcw73fPwFpAOjgmWI',
+          clientKey: 'SB-Mid-client-tuHFsrsxohwXDvQ4'
+        })
+        let transaction = await snap.createTransactionToken(paramater)
+        if (finished && finished.length) res.status(200).json({finishOrder: finished[0][1][0], token : transaction })
       }
     } catch (err) {
       next (err)
