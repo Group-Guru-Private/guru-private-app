@@ -39,7 +39,7 @@ class StudentController {
         }
         else if (verifyPassword(password, data.password )){
           const access_token = generateToken({id: data.id,email: data.email})
-          res.status(200).json({ access_token })
+          res.status(200).json({ id:data.id, name: data.name, email: data.email, role: data.role, access_token })
         }
         else if (!verifyPassword(password, data.password)){
           next({ status: 404, message: 'Invalid Email/Password'})
