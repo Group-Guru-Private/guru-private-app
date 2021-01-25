@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1611589548216" clover="3.2.0">
-  <project timestamp="1611589548217" name="All files">
+<coverage generated="1611590341729" clover="3.2.0">
+  <project timestamp="1611590341729" name="All files">
     <metrics statements="279" coveredstatements="263" conditionals="73" coveredconditionals="53" methods="47" coveredmethods="44" elements="399" coveredelements="360" complexity="0" loc="279" ncloc="279" packages="6" files="18" classes="18"/>
     <package name="guru-private-server">
       <metrics statements="13" coveredstatements="13" conditionals="2" coveredconditionals="1" methods="0" coveredmethods="0"/>
@@ -55,13 +55,13 @@
         <line num="65" count="1" type="stmt"/>
         <line num="94" count="1" type="stmt"/>
         <line num="99" count="1" type="stmt"/>
-        <line num="102" count="0" type="cond" truecount="0" falsecount="4"/>
-        <line num="105" count="1" type="stmt"/>
+        <line num="100" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="103" count="1" type="stmt"/>
+        <line num="107" count="1" type="stmt"/>
+        <line num="108" count="1" type="stmt"/>
         <line num="109" count="1" type="stmt"/>
-        <line num="110" count="1" type="stmt"/>
-        <line num="111" count="1" type="stmt"/>
-        <line num="113" count="0" type="stmt"/>
-        <line num="118" count="13" type="stmt"/>
+        <line num="111" count="0" type="stmt"/>
+        <line num="116" count="13" type="stmt"/>
       </file>
       <file name="studentController.js" path="/home/litha/Documents/Hacktiv8/Phase 3/guru-private-server/controllers/studentController.js">
         <metrics statements="50" coveredstatements="45" conditionals="22" coveredconditionals="15" methods="15" coveredmethods="12"/>

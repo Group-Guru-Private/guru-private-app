@@ -52,7 +52,7 @@ class TeacherController {
                         email: guru.email,
                         id: guru.id
                     })
-                    res.status(200).json({ email: guru.email, access_token})
+                    res.status(200).json({ id: guru.id, name: guru.name, email: guru.email, role: guru.role, access_token })
                 }
             }
         }
