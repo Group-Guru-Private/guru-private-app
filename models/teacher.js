@@ -144,7 +144,10 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     hooks: {
       beforeCreate(teacher) {
-         teacher.password = generatePassword(teacher.password)
+        teacher.available_status = false
+        teacher.income = 0
+        teacher.rating = 0
+        teacher.password = generatePassword(teacher.password)
       }
     },
     sequelize,

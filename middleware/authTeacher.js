@@ -14,7 +14,7 @@ class authTeacher {
               const decoded = verifyToken(access_token)
               let id = decoded.id
               req.loginTeacher = decoded
-              let data = await Teacher.findOne({where: {id: id}})
+              let data = await Teacher.findOne({where: {id: id, email: decoded.email}})
               if (data) {
                 next()
               }
