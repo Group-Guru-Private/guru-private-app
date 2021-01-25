@@ -6,7 +6,7 @@ const {generateToken} = require('../helpers/jwtHelper')
 
 const registStudent = {
   name: "Student2",
-  email: 'student2@mail.com',
+  email: 'studentEdit@mail.com',
   password: '123456',
   role: 'student',
   address: 'Jl. Mangga harum manis',
@@ -46,7 +46,7 @@ describe('EDIT Student PUT/students/edit/:id', () => {
         .send({
         
           name: "Edit nih",
-          email: 'student2@mail.com',
+          email: 'studentEdit@mail.com',
           password: '123456',
           role: 'student',
           address: 'Jl. Mangga harum manis',
@@ -75,7 +75,7 @@ describe('EDIT Student PUT/students/edit/:id', () => {
         .send({
         
             name: "",
-            email: 'student2@mail.com',
+            email: 'studentEdit@mail.com',
             password: '123456',
             role: 'student',
             address: 'Jl. Mangga harum manis',
@@ -160,7 +160,7 @@ describe('EDIT Student PUT/students/edit/:id', () => {
         .send({
           
             name: "Student2",
-            email: 'student2@mail.com',
+            email: 'studentEdit@mail.com',
             password: '123456',
             role: '',
             address: 'Jl. Mangga harum manis',
@@ -188,7 +188,7 @@ describe('EDIT Student PUT/students/edit/:id', () => {
         .send({
           
             name: "Student2",
-            email: 'sstudent2@mail.com',
+            email: 'sstudentEdit@mail.com',
             password: '123456',
             role: 'student',
             address: '',
@@ -216,7 +216,7 @@ describe('EDIT Student PUT/students/edit/:id', () => {
         .send({
           
             name: "Student2",
-            email: 'student2@mail.com',
+            email: 'studentEdit@mail.com',
             password: '123456',
             role: 'Student',
             address: 'Jl. Mangga harum manis',

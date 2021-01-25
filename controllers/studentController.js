@@ -1,7 +1,7 @@
 const {generateToken} = require('../helpers/jwtHelper') 
 const {generatePassword,verifyPassword} = require('../helpers/passwordHelper')
 const {Student} =  require('../models')
-const bcrypt = require('bcryptjs')
+
 
 class StudentController {
   static async register (req,res,next){
@@ -30,16 +30,19 @@ class StudentController {
   static login(req,res,next){
     const email = req.body.email
     const password = req.body.password
+
     if (!password) next({status: 404, message: 'Please input your Password'})
     if (!email) next({status: 404, message: 'Please input your Email' })
+
     Student.findOne({where:{email:email}})
+  
       .then(data=>{
         if(!data){
           next({status: 401, message: `Account Not Found` })
         }
         else if (verifyPassword(password, data.password )){
           const access_token = generateToken({id: data.id,email: data.email})
-          res.status(200).json({ access_token })
+          res.status(200).json({ access_token: access_token, id: data.id, name: data.name, email: data.email })
         }
         else if (!verifyPassword(password, data.password)){
           next({ status: 404, message: 'Invalid Email/Password'})
@@ -53,7 +56,7 @@ class StudentController {
   static showAll(req,res,next) {
     Student.findAll({})
     .then((data)=>{
-      res.status(200).json({alldata: data})
+      res.status(200).json(data)
     })
     .catch((error)=>{
       next(error)

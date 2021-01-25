@@ -51,8 +51,8 @@ describe('Register Student POST /students/register', () => {
             return done(err)
           }
           expect(status).toBe(201)
-          expect(body).toHaveProperty('name', registStudent.name)
-          expect(body).toHaveProperty('email', registStudent.email)
+          expect(body).toHaveProperty('name')
+          expect(body).toHaveProperty('email')
           done()
         })
     })

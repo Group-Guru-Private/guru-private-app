@@ -8,7 +8,7 @@ const {generateToken} = require('../helpers/jwtHelper')
 
 const registStudent = {
   name: "Student2",
-  email: 'student2@mail.com',
+  email: 'studentLogin@mail.com',
   password: '123456',
   role: 'student',
   address: 'Jl. Mangga harum manis',
@@ -44,7 +44,7 @@ describe('Login Student POST /students/login', () => {
       request(app)
         .post('/students/login')
         .send({
-          email: 'student2@mail.com',
+          email: 'studentLogin@mail.com',
           password: '123456',
         })
         .end((err, res) => {
@@ -54,6 +54,10 @@ describe('Login Student POST /students/login', () => {
           }
           expect(status).toBe(200)
           expect(body).toHaveProperty('access_token')
+          expect(body).toHaveProperty('id')
+          expect(body).toHaveProperty('name')
+          expect(body).toHaveProperty('email')
+
           done()
         })
     })
@@ -66,7 +70,7 @@ describe('Login Student POST /students/login', () => {
         .post('/students/login')
         .send({
         
-            email: 'student2@mail.com',
+            email: 'studentLogin@mail.com',
             password: '',
           
         })
@@ -110,7 +114,7 @@ describe('Login Student POST /students/login', () => {
         .post('/students/login')
         .send({
         
-            email: 'student2@mail.com',
+            email: 'studentLogin@mail.com',
             password: 'ab',
           
         })
@@ -132,7 +136,7 @@ describe('Login Student POST /students/login', () => {
         .post('/students/login')
         .send({
         
-            email: 'stustudent2@mail.com',
+            email: 'stustudentLogin@mail.com',
             password: '12345',
           
         })
