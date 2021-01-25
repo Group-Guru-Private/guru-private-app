@@ -8,6 +8,7 @@ router.post('/login', TeacherController.login)
 router.get('/:id', TeacherController.getTeacherById)
 
 router.use(authTeacher.user)
+router.patch('/', TeacherController.changeStatus)
 router.put('/:id', TeacherController.editProfile)
 
 module.exports = router
