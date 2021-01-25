@@ -102,6 +102,20 @@ class TeacherController {
             next(error)
         }
     }
+
+    static async changeStatus (req, res, next) {
+        try {
+            const id = req.loginTeacher.id
+            const status = req.body.status
+            const findTeacher = await Teacher.findByPk(id)
+            if (findTeacher) {
+                const result = await Teacher.update({available_status: status}, {where: {id}, returning: true})
+                res.status(200).json(result[1][0])
+            }
+        } catch (err) {
+            next(err)
+        }
+    }
 }
 
 module.exports = TeacherController
