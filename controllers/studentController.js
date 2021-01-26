@@ -64,7 +64,7 @@ class StudentController {
     const id = +req.params.id
     Student.findOne({ where: {id:id} })
       .then((data)=>{
-        res.status(200).json({name: data.name, email: data.email, address: data.address, phone: data.telpon_number})
+        res.status(200).json(data)
       })
       .catch((error)=>{
         next(error)
