@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1611641695715" clover="3.2.0">
-  <project timestamp="1611641695715" name="All files">
-    <metrics statements="296" coveredstatements="280" conditionals="81" coveredconditionals="59" methods="50" coveredmethods="47" elements="427" coveredelements="386" complexity="0" loc="296" ncloc="296" packages="6" files="18" classes="18"/>
+<coverage generated="1611673859724" clover="3.2.0">
+  <project timestamp="1611673859724" name="All files">
+    <metrics statements="318" coveredstatements="302" conditionals="95" coveredconditionals="69" methods="53" coveredmethods="50" elements="466" coveredelements="421" complexity="0" loc="318" ncloc="318" packages="6" files="18" classes="18"/>
     <package name="guru-private-server">
       <metrics statements="13" coveredstatements="13" conditionals="2" coveredconditionals="1" methods="0" coveredmethods="0"/>
       <file name="app.js" path="/home/litha/Documents/Hacktiv8/Phase 3/guru-private-server/app.js">
         <metrics statements="13" coveredstatements="13" conditionals="2" coveredconditionals="1" methods="0" coveredmethods="0"/>
-        <line num="1" count="14" type="cond" truecount="1" falsecount="1"/>
-        <line num="2" count="14" type="stmt"/>
-        <line num="5" count="14" type="stmt"/>
-        <line num="6" count="14" type="stmt"/>
-        <line num="7" count="14" type="stmt"/>
-        <line num="8" count="14" type="stmt"/>
-        <line num="9" count="14" type="stmt"/>
-        <line num="11" count="14" type="stmt"/>
-        <line num="12" count="14" type="stmt"/>
-        <line num="13" count="14" type="stmt"/>
-        <line num="14" count="14" type="stmt"/>
-        <line num="15" count="14" type="stmt"/>
-        <line num="17" count="14" type="stmt"/>
+        <line num="1" count="15" type="cond" truecount="1" falsecount="1"/>
+        <line num="2" count="15" type="stmt"/>
+        <line num="5" count="15" type="stmt"/>
+        <line num="6" count="15" type="stmt"/>
+        <line num="7" count="15" type="stmt"/>
+        <line num="8" count="15" type="stmt"/>
+        <line num="9" count="15" type="stmt"/>
+        <line num="11" count="15" type="stmt"/>
+        <line num="12" count="15" type="stmt"/>
+        <line num="13" count="15" type="stmt"/>
+        <line num="14" count="15" type="stmt"/>
+        <line num="15" count="15" type="stmt"/>
+        <line num="17" count="15" type="stmt"/>
       </file>
     </package>
     <package name="guru-private-server.controllers">
-      <metrics statements="133" coveredstatements="120" conditionals="46" coveredconditionals="31" methods="27" coveredmethods="24"/>
+      <metrics statements="154" coveredstatements="141" conditionals="60" coveredconditionals="41" methods="30" coveredmethods="27"/>
       <file name="orderController.js" path="/home/litha/Documents/Hacktiv8/Phase 3/guru-private-server/controllers/orderController.js">
-        <metrics statements="41" coveredstatements="37" conditionals="16" coveredconditionals="10" methods="6" coveredmethods="6"/>
-        <line num="1" count="14" type="stmt"/>
-        <line num="2" count="14" type="stmt"/>
-        <line num="3" count="14" type="stmt"/>
+        <metrics statements="62" coveredstatements="58" conditionals="30" coveredconditionals="20" methods="9" coveredmethods="9"/>
+        <line num="1" count="15" type="stmt"/>
+        <line num="2" count="15" type="stmt"/>
+        <line num="3" count="15" type="stmt"/>
         <line num="7" count="3" type="stmt"/>
         <line num="8" count="3" type="stmt"/>
         <line num="9" count="3" type="cond" truecount="2" falsecount="0"/>
@@ -65,14 +65,35 @@
         <line num="114" count="1" type="stmt"/>
         <line num="115" count="1" type="stmt"/>
         <line num="117" count="0" type="stmt"/>
-        <line num="122" count="14" type="stmt"/>
+        <line num="122" count="2" type="stmt"/>
+        <line num="123" count="2" type="stmt"/>
+        <line num="124" count="2" type="stmt"/>
+        <line num="125" count="2" type="stmt"/>
+        <line num="126" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="127" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="128" count="1" type="stmt"/>
+        <line num="129" count="1" type="stmt"/>
+        <line num="130" count="1" type="stmt"/>
+        <line num="131" count="1" type="cond" truecount="3" falsecount="1"/>
+        <line num="132" count="2" type="stmt"/>
+        <line num="133" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="134" count="1" type="stmt"/>
+        <line num="135" count="1" type="stmt"/>
+        <line num="136" count="1" type="stmt"/>
+        <line num="138" count="1" type="stmt"/>
+        <line num="139" count="1" type="stmt"/>
+        <line num="140" count="1" type="cond" truecount="3" falsecount="1"/>
+        <line num="141" count="1" type="stmt"/>
+        <line num="145" count="1" type="stmt"/>
+        <line num="148" count="1" type="stmt"/>
+        <line num="153" count="15" type="stmt"/>
       </file>
       <file name="studentController.js" path="/home/litha/Documents/Hacktiv8/Phase 3/guru-private-server/controllers/studentController.js">
         <metrics statements="50" coveredstatements="45" conditionals="22" coveredconditionals="15" methods="15" coveredmethods="12"/>
-        <line num="1" count="14" type="stmt"/>
-        <line num="2" count="14" type="stmt"/>
-        <line num="3" count="14" type="stmt"/>
-        <line num="4" count="14" type="stmt"/>
+        <line num="1" count="15" type="stmt"/>
+        <line num="2" count="15" type="stmt"/>
+        <line num="3" count="15" type="stmt"/>
+        <line num="4" count="15" type="stmt"/>
         <line num="8" count="9" type="stmt"/>
         <line num="9" count="9" type="stmt"/>
         <line num="11" count="1" type="stmt"/>
@@ -118,13 +139,13 @@
         <line num="98" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="99" count="0" type="stmt"/>
         <line num="101" count="6" type="stmt"/>
-        <line num="107" count="14" type="stmt"/>
+        <line num="107" count="15" type="stmt"/>
       </file>
       <file name="teacherController.js" path="/home/litha/Documents/Hacktiv8/Phase 3/guru-private-server/controllers/teacherController.js">
         <metrics statements="42" coveredstatements="38" conditionals="8" coveredconditionals="6" methods="6" coveredmethods="6"/>
-        <line num="1" count="14" type="stmt"/>
-        <line num="2" count="14" type="stmt"/>
-        <line num="3" count="14" type="stmt"/>
+        <line num="1" count="15" type="stmt"/>
+        <line num="2" count="15" type="stmt"/>
+        <line num="3" count="15" type="stmt"/>
         <line num="7" count="14" type="stmt"/>
         <line num="8" count="14" type="stmt"/>
         <line num="9" count="14" type="stmt"/>
@@ -163,52 +184,52 @@
         <line num="112" count="1" type="stmt"/>
         <line num="113" count="1" type="stmt"/>
         <line num="116" count="0" type="stmt"/>
-        <line num="121" count="14" type="stmt"/>
+        <line num="121" count="15" type="stmt"/>
       </file>
     </package>
     <package name="guru-private-server.helpers">
       <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
       <file name="jwtHelper.js" path="/home/litha/Documents/Hacktiv8/Phase 3/guru-private-server/helpers/jwtHelper.js">
         <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
-        <line num="1" count="14" type="stmt"/>
-        <line num="4" count="13" type="stmt"/>
-        <line num="8" count="27" type="stmt"/>
-        <line num="11" count="14" type="stmt"/>
+        <line num="1" count="15" type="stmt"/>
+        <line num="4" count="15" type="stmt"/>
+        <line num="8" count="30" type="stmt"/>
+        <line num="11" count="15" type="stmt"/>
       </file>
       <file name="passwordHelper.js" path="/home/litha/Documents/Hacktiv8/Phase 3/guru-private-server/helpers/passwordHelper.js">
         <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
-        <line num="1" count="14" type="stmt"/>
-        <line num="4" count="72" type="stmt"/>
-        <line num="5" count="72" type="stmt"/>
-        <line num="6" count="72" type="stmt"/>
+        <line num="1" count="15" type="stmt"/>
+        <line num="4" count="78" type="stmt"/>
+        <line num="5" count="78" type="stmt"/>
+        <line num="6" count="78" type="stmt"/>
         <line num="10" count="8" type="stmt"/>
-        <line num="13" count="14" type="stmt"/>
+        <line num="13" count="15" type="stmt"/>
       </file>
     </package>
     <package name="guru-private-server.middleware">
       <metrics statements="52" coveredstatements="50" conditionals="22" coveredconditionals="20" methods="6" coveredmethods="6"/>
       <file name="authStudent.js" path="/home/litha/Documents/Hacktiv8/Phase 3/guru-private-server/middleware/authStudent.js">
         <metrics statements="15" coveredstatements="14" conditionals="4" coveredconditionals="3" methods="1" coveredmethods="1"/>
-        <line num="2" count="14" type="stmt"/>
-        <line num="3" count="14" type="stmt"/>
-        <line num="5" count="14" type="stmt"/>
-        <line num="6" count="17" type="stmt"/>
-        <line num="7" count="17" type="stmt"/>
-        <line num="8" count="17" type="cond" truecount="2" falsecount="0"/>
-        <line num="9" count="3" type="stmt"/>
-        <line num="14" count="14" type="stmt"/>
-        <line num="15" count="14" type="stmt"/>
-        <line num="16" count="14" type="stmt"/>
-        <line num="17" count="14" type="stmt"/>
-        <line num="19" count="14" type="cond" truecount="1" falsecount="1"/>
-        <line num="20" count="14" type="stmt"/>
+        <line num="2" count="15" type="stmt"/>
+        <line num="3" count="15" type="stmt"/>
+        <line num="5" count="15" type="stmt"/>
+        <line num="6" count="21" type="stmt"/>
+        <line num="7" count="21" type="stmt"/>
+        <line num="8" count="21" type="cond" truecount="2" falsecount="0"/>
+        <line num="9" count="4" type="stmt"/>
+        <line num="14" count="17" type="stmt"/>
+        <line num="15" count="17" type="stmt"/>
+        <line num="16" count="17" type="stmt"/>
+        <line num="17" count="17" type="stmt"/>
+        <line num="19" count="17" type="cond" truecount="1" falsecount="1"/>
+        <line num="20" count="17" type="stmt"/>
         <line num="23" count="0" type="stmt"/>
-        <line num="31" count="3" type="stmt"/>
+        <line num="31" count="4" type="stmt"/>
       </file>
       <file name="authTeacher.js" path="/home/litha/Documents/Hacktiv8/Phase 3/guru-private-server/middleware/authTeacher.js">
         <metrics statements="15" coveredstatements="14" conditionals="4" coveredconditionals="3" methods="1" coveredmethods="1"/>
-        <line num="1" count="14" type="stmt"/>
-        <line num="2" count="14" type="stmt"/>
+        <line num="1" count="15" type="stmt"/>
+        <line num="2" count="15" type="stmt"/>
         <line num="6" count="14" type="stmt"/>
         <line num="7" count="14" type="stmt"/>
         <line num="8" count="14" type="cond" truecount="2" falsecount="0"/>
@@ -221,153 +242,154 @@
         <line num="19" count="13" type="stmt"/>
         <line num="22" count="0" type="stmt"/>
         <line num="29" count="1" type="stmt"/>
-        <line num="34" count="14" type="stmt"/>
+        <line num="34" count="15" type="stmt"/>
       </file>
       <file name="authorizationOrder.js" path="/home/litha/Documents/Hacktiv8/Phase 3/guru-private-server/middleware/authorizationOrder.js">
         <metrics statements="7" coveredstatements="7" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
-        <line num="1" count="14" type="stmt"/>
-        <line num="3" count="14" type="stmt"/>
-        <line num="4" count="4" type="stmt"/>
-        <line num="5" count="4" type="stmt"/>
-        <line num="11" count="4" type="cond" truecount="2" falsecount="0"/>
-        <line num="12" count="2" type="stmt"/>
-        <line num="17" count="2" type="stmt"/>
+        <line num="1" count="15" type="stmt"/>
+        <line num="3" count="15" type="stmt"/>
+        <line num="4" count="7" type="stmt"/>
+        <line num="5" count="7" type="stmt"/>
+        <line num="11" count="7" type="cond" truecount="2" falsecount="0"/>
+        <line num="12" count="3" type="stmt"/>
+        <line num="17" count="3" type="stmt"/>
       </file>
       <file name="errorhandler.js" path="/home/litha/Documents/Hacktiv8/Phase 3/guru-private-server/middleware/errorhandler.js">
         <metrics statements="15" coveredstatements="15" conditionals="12" coveredconditionals="12" methods="3" coveredmethods="3"/>
-        <line num="3" count="56" type="cond" truecount="2" falsecount="0"/>
-        <line num="4" count="56" type="cond" truecount="2" falsecount="0"/>
-        <line num="5" count="56" type="cond" truecount="2" falsecount="0"/>
+        <line num="3" count="59" type="cond" truecount="2" falsecount="0"/>
+        <line num="4" count="59" type="cond" truecount="2" falsecount="0"/>
+        <line num="5" count="59" type="cond" truecount="2" falsecount="0"/>
         <line num="6" count="1" type="stmt"/>
         <line num="7" count="1" type="stmt"/>
-        <line num="9" count="55" type="cond" truecount="4" falsecount="0"/>
+        <line num="9" count="58" type="cond" truecount="4" falsecount="0"/>
         <line num="10" count="24" type="stmt"/>
         <line num="11" count="37" type="stmt"/>
         <line num="13" count="24" type="stmt"/>
         <line num="14" count="24" type="stmt"/>
-        <line num="15" count="31" type="cond" truecount="2" falsecount="0"/>
+        <line num="15" count="34" type="cond" truecount="2" falsecount="0"/>
         <line num="16" count="4" type="stmt"/>
         <line num="17" count="4" type="stmt"/>
-        <line num="19" count="56" type="stmt"/>
-        <line num="23" count="14" type="stmt"/>
+        <line num="19" count="59" type="stmt"/>
+        <line num="23" count="15" type="stmt"/>
       </file>
     </package>
     <package name="guru-private-server.models">
       <metrics statements="47" coveredstatements="46" conditionals="11" coveredconditionals="7" methods="13" coveredmethods="13"/>
       <file name="index.js" path="/home/litha/Documents/Hacktiv8/Phase 3/guru-private-server/models/index.js">
         <metrics statements="20" coveredstatements="19" conditionals="9" coveredconditionals="6" methods="3" coveredmethods="3"/>
-        <line num="3" count="14" type="stmt"/>
-        <line num="4" count="14" type="stmt"/>
-        <line num="5" count="14" type="stmt"/>
-        <line num="6" count="14" type="stmt"/>
-        <line num="7" count="14" type="cond" truecount="1" falsecount="1"/>
-        <line num="8" count="14" type="stmt"/>
-        <line num="9" count="14" type="stmt"/>
-        <line num="12" count="14" type="cond" truecount="1" falsecount="1"/>
+        <line num="3" count="15" type="stmt"/>
+        <line num="4" count="15" type="stmt"/>
+        <line num="5" count="15" type="stmt"/>
+        <line num="6" count="15" type="stmt"/>
+        <line num="7" count="15" type="cond" truecount="1" falsecount="1"/>
+        <line num="8" count="15" type="stmt"/>
+        <line num="9" count="15" type="stmt"/>
+        <line num="12" count="15" type="cond" truecount="1" falsecount="1"/>
         <line num="13" count="0" type="stmt"/>
-        <line num="15" count="14" type="stmt"/>
-        <line num="18" count="14" type="stmt"/>
-        <line num="21" count="56" type="cond" truecount="3" falsecount="0"/>
-        <line num="24" count="42" type="stmt"/>
-        <line num="25" count="42" type="stmt"/>
-        <line num="28" count="14" type="stmt"/>
-        <line num="29" count="42" type="cond" truecount="1" falsecount="1"/>
-        <line num="30" count="42" type="stmt"/>
-        <line num="34" count="14" type="stmt"/>
-        <line num="35" count="14" type="stmt"/>
-        <line num="37" count="14" type="stmt"/>
+        <line num="15" count="15" type="stmt"/>
+        <line num="18" count="15" type="stmt"/>
+        <line num="21" count="60" type="cond" truecount="3" falsecount="0"/>
+        <line num="24" count="45" type="stmt"/>
+        <line num="25" count="45" type="stmt"/>
+        <line num="28" count="15" type="stmt"/>
+        <line num="29" count="45" type="cond" truecount="1" falsecount="1"/>
+        <line num="30" count="45" type="stmt"/>
+        <line num="34" count="15" type="stmt"/>
+        <line num="35" count="15" type="stmt"/>
+        <line num="37" count="15" type="stmt"/>
       </file>
       <file name="order.js" path="/home/litha/Documents/Hacktiv8/Phase 3/guru-private-server/models/order.js">
         <metrics statements="9" coveredstatements="9" conditionals="2" coveredconditionals="1" methods="4" coveredmethods="4"/>
-        <line num="4" count="14" type="stmt"/>
-        <line num="5" count="14" type="stmt"/>
-        <line num="14" count="14" type="stmt"/>
-        <line num="15" count="14" type="stmt"/>
-        <line num="18" count="14" type="stmt"/>
-        <line num="55" count="6" type="cond" truecount="1" falsecount="1"/>
-        <line num="63" count="5" type="stmt"/>
-        <line num="64" count="5" type="stmt"/>
-        <line num="70" count="14" type="stmt"/>
+        <line num="4" count="15" type="stmt"/>
+        <line num="5" count="15" type="stmt"/>
+        <line num="14" count="15" type="stmt"/>
+        <line num="15" count="15" type="stmt"/>
+        <line num="18" count="15" type="stmt"/>
+        <line num="55" count="8" type="cond" truecount="1" falsecount="1"/>
+        <line num="63" count="7" type="stmt"/>
+        <line num="64" count="7" type="stmt"/>
+        <line num="70" count="15" type="stmt"/>
       </file>
       <file name="student.js" path="/home/litha/Documents/Hacktiv8/Phase 3/guru-private-server/models/student.js">
         <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
-        <line num="3" count="14" type="stmt"/>
-        <line num="6" count="14" type="stmt"/>
-        <line num="7" count="14" type="stmt"/>
-        <line num="16" count="14" type="stmt"/>
-        <line num="19" count="14" type="stmt"/>
-        <line num="87" count="14" type="stmt"/>
-        <line num="88" count="12" type="stmt"/>
-        <line num="90" count="14" type="stmt"/>
+        <line num="3" count="15" type="stmt"/>
+        <line num="6" count="15" type="stmt"/>
+        <line num="7" count="15" type="stmt"/>
+        <line num="16" count="15" type="stmt"/>
+        <line num="19" count="15" type="stmt"/>
+        <line num="87" count="15" type="stmt"/>
+        <line num="88" count="14" type="stmt"/>
+        <line num="90" count="15" type="stmt"/>
       </file>
       <file name="teacher.js" path="/home/litha/Documents/Hacktiv8/Phase 3/guru-private-server/models/teacher.js">
         <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
-        <line num="4" count="14" type="stmt"/>
-        <line num="6" count="14" type="stmt"/>
-        <line num="9" count="14" type="stmt"/>
-        <line num="18" count="14" type="stmt"/>
-        <line num="21" count="14" type="stmt"/>
-        <line num="147" count="12" type="stmt"/>
-        <line num="148" count="12" type="stmt"/>
-        <line num="149" count="12" type="stmt"/>
-        <line num="150" count="12" type="stmt"/>
-        <line num="156" count="14" type="stmt"/>
+        <line num="4" count="15" type="stmt"/>
+        <line num="6" count="15" type="stmt"/>
+        <line num="9" count="15" type="stmt"/>
+        <line num="18" count="15" type="stmt"/>
+        <line num="21" count="15" type="stmt"/>
+        <line num="147" count="13" type="stmt"/>
+        <line num="148" count="13" type="stmt"/>
+        <line num="149" count="13" type="stmt"/>
+        <line num="150" count="13" type="stmt"/>
+        <line num="156" count="15" type="stmt"/>
       </file>
     </package>
     <package name="guru-private-server.routes">
-      <metrics statements="41" coveredstatements="41" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <metrics statements="42" coveredstatements="42" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="index.js" path="/home/litha/Documents/Hacktiv8/Phase 3/guru-private-server/routes/index.js">
         <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="14" type="stmt"/>
-        <line num="2" count="14" type="stmt"/>
-        <line num="3" count="14" type="stmt"/>
-        <line num="4" count="14" type="stmt"/>
-        <line num="6" count="14" type="stmt"/>
-        <line num="7" count="14" type="stmt"/>
-        <line num="8" count="14" type="stmt"/>
-        <line num="10" count="14" type="stmt"/>
+        <line num="1" count="15" type="stmt"/>
+        <line num="2" count="15" type="stmt"/>
+        <line num="3" count="15" type="stmt"/>
+        <line num="4" count="15" type="stmt"/>
+        <line num="6" count="15" type="stmt"/>
+        <line num="7" count="15" type="stmt"/>
+        <line num="8" count="15" type="stmt"/>
+        <line num="10" count="15" type="stmt"/>
       </file>
       <file name="orders.js" path="/home/litha/Documents/Hacktiv8/Phase 3/guru-private-server/routes/orders.js">
-        <metrics statements="12" coveredstatements="12" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="14" type="stmt"/>
-        <line num="2" count="14" type="stmt"/>
-        <line num="3" count="14" type="stmt"/>
-        <line num="4" count="14" type="stmt"/>
-        <line num="6" count="14" type="stmt"/>
-        <line num="7" count="14" type="stmt"/>
-        <line num="9" count="14" type="stmt"/>
-        <line num="10" count="14" type="stmt"/>
-        <line num="13" count="14" type="stmt"/>
-        <line num="14" count="14" type="stmt"/>
-        <line num="15" count="14" type="stmt"/>
-        <line num="17" count="14" type="stmt"/>
+        <metrics statements="13" coveredstatements="13" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="15" type="stmt"/>
+        <line num="2" count="15" type="stmt"/>
+        <line num="3" count="15" type="stmt"/>
+        <line num="4" count="15" type="stmt"/>
+        <line num="6" count="15" type="stmt"/>
+        <line num="7" count="15" type="stmt"/>
+        <line num="9" count="15" type="stmt"/>
+        <line num="10" count="15" type="stmt"/>
+        <line num="13" count="15" type="stmt"/>
+        <line num="14" count="15" type="stmt"/>
+        <line num="15" count="15" type="stmt"/>
+        <line num="16" count="15" type="stmt"/>
+        <line num="18" count="15" type="stmt"/>
       </file>
       <file name="students.js" path="/home/litha/Documents/Hacktiv8/Phase 3/guru-private-server/routes/students.js">
         <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="14" type="stmt"/>
-        <line num="2" count="14" type="stmt"/>
-        <line num="3" count="14" type="stmt"/>
-        <line num="6" count="14" type="stmt"/>
-        <line num="7" count="14" type="stmt"/>
-        <line num="8" count="14" type="stmt"/>
-        <line num="10" count="14" type="stmt"/>
-        <line num="11" count="14" type="stmt"/>
-        <line num="12" count="14" type="stmt"/>
-        <line num="17" count="14" type="stmt"/>
+        <line num="1" count="15" type="stmt"/>
+        <line num="2" count="15" type="stmt"/>
+        <line num="3" count="15" type="stmt"/>
+        <line num="6" count="15" type="stmt"/>
+        <line num="7" count="15" type="stmt"/>
+        <line num="8" count="15" type="stmt"/>
+        <line num="10" count="15" type="stmt"/>
+        <line num="11" count="15" type="stmt"/>
+        <line num="12" count="15" type="stmt"/>
+        <line num="17" count="15" type="stmt"/>
       </file>
       <file name="teachers.js" path="/home/litha/Documents/Hacktiv8/Phase 3/guru-private-server/routes/teachers.js">
         <metrics statements="11" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="14" type="stmt"/>
-        <line num="2" count="14" type="stmt"/>
-        <line num="3" count="14" type="stmt"/>
-        <line num="5" count="14" type="stmt"/>
-        <line num="6" count="14" type="stmt"/>
-        <line num="7" count="14" type="stmt"/>
-        <line num="8" count="14" type="stmt"/>
-        <line num="10" count="14" type="stmt"/>
-        <line num="11" count="14" type="stmt"/>
-        <line num="12" count="14" type="stmt"/>
-        <line num="14" count="14" type="stmt"/>
+        <line num="1" count="15" type="stmt"/>
+        <line num="2" count="15" type="stmt"/>
+        <line num="3" count="15" type="stmt"/>
+        <line num="5" count="15" type="stmt"/>
+        <line num="6" count="15" type="stmt"/>
+        <line num="7" count="15" type="stmt"/>
+        <line num="8" count="15" type="stmt"/>
+        <line num="10" count="15" type="stmt"/>
+        <line num="11" count="15" type="stmt"/>
+        <line num="12" count="15" type="stmt"/>
+        <line num="14" count="15" type="stmt"/>
       </file>
     </package>
   </project>

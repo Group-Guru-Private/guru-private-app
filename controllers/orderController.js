@@ -124,11 +124,11 @@ class OrderController {
       const findOrder = await Order.findByPk(id)
       const newRate = +req.body.rating
       if (findOrder) {
-          if (findOrder.status) {
+        if (findOrder.status) {
           const changeRate = await Order.update({ rating: newRate }, { where: {id}, returning: true } )
           const idTeacher = findOrder.TeacherId
           const findTeacherOrders = await Order.findAll({ where: { TeacherId: idTeacher }})
-          if (findTeacherOrders.length) {
+          if (findTeacherOrders.length && changeRate) {
             const filterRating = findTeacherOrders.filter(rate => rate.rating)
             if (filterRating.length) {
               let sumRate = 0
@@ -140,13 +140,7 @@ class OrderController {
               if (changeRate && updateRateTeacher) {
                 res.status(200).json({Order: changeRate[1][0], Teacher: updateRateTeacher[1][0] })
               }
-            } else {
-              const updateRateTeacher = await Teacher.update({ rating: newRate }, {where: {id: idTeacher}, returning: true })
-              res.status(200).json({Order: changeRate[1][0], Teacher: updateRateTeacher[1][0]})
             }
-          } else {
-            const updateRateTeacher = await Teacher.update({ rating: newRate }, {where: {id: idTeacher}, returning: true })
-            res.status(200).json({Order: changeRate[1][0], Teacher: updateRateTeacher[1][0]})
           } 
         } else throw {status: 400, message: `Harap melakukan pembayaran terlebih dahulu`}
       }
