@@ -50,7 +50,10 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       validate: {
         notNull: { msg: `Date can't be empty` },
-        notEmpty: { msg: `Date can't be empty` }
+        notEmpty: { msg: `Date can't be empty` },
+        isGreather (value) {
+          if (value < new Date().toISOString().split('T')[0]) throw (`Date must greather than now`)
+        }
       }
     },
     rating: DataTypes.INTEGER
