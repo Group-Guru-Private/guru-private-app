@@ -3,6 +3,8 @@ const app = require('../app')
 const {Student, Teacher, Order} = require('../models')
 const {generateToken} = require('../helpers/jwtHelper')
 const {generatePassword} = require('../helpers/passwordHelper')
+const { sequelize } = require('../models/index')
+const { queryInterface } = sequelize
 
 const registStudent = {
   name: 'Student',
@@ -62,7 +64,7 @@ beforeAll( async (done) => {
         TeacherId: dataTeacher.id,
         subject: 'Mathematics',
         distance: 5,
-        date: '2020-02-02',
+        date: '2021-02-02',
         total_price: (5 * 5000) + dataTeacher.price
       }
       const result = await Order.create(payload)
@@ -79,7 +81,8 @@ afterAll( async (done) => {
     await Student.destroy({ where: {id: id_student }})
     await Student.destroy({ where: {id: id_second_student }})
     await Teacher.destroy({ where: {id: id_teacher }})
-    await Order.destroy({ where: {id: id_order }})
+    // await Order.destroy({ where: {id: id_order }})
+    await queryInterface.bulkDelete('Orders')
     done()
   } catch (err) {
     done(err)

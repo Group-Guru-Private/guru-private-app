@@ -33,7 +33,7 @@ const registTeacher =  {
 const data = {
   subject: 'Mathematics',
   distance: 5,
-  date: '2021-02-02'
+  date: '2021-07-10'
 }
 
 let access_token_student = ''
@@ -121,7 +121,7 @@ describe('Create order POST /orders/:id', () => {
         .send({
           subject: '',
           distance: data.distance,
-          date: data.date
+          date: '2021-07-17'
          })
         .end((err, res) => {
           const {body, status} = res

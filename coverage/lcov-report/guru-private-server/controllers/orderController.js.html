@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">89.74% </span>
+                <span class="strong">88.64% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>35/39</span>
+                <span class='fraction'>39/44</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">58.33% </span>
+                <span class="strong">62.5% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>7/12</span>
+                <span class='fraction'>10/16</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>5/5</span>
+                <span class='fraction'>6/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">91.89% </span>
+                <span class="strong">90.24% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>34/37</span>
+                <span class='fraction'>37/41</span>
             </div>
         
             
@@ -172,7 +172,13 @@
 <a name='L113'></a><a href='#L113'>113</a>
 <a name='L114'></a><a href='#L114'>114</a>
 <a name='L115'></a><a href='#L115'>115</a>
-<a name='L116'></a><a href='#L116'>116</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">14x</span>
+<a name='L116'></a><a href='#L116'>116</a>
+<a name='L117'></a><a href='#L117'>117</a>
+<a name='L118'></a><a href='#L118'>118</a>
+<a name='L119'></a><a href='#L119'>119</a>
+<a name='L120'></a><a href='#L120'>120</a>
+<a name='L121'></a><a href='#L121'>121</a>
+<a name='L122'></a><a href='#L122'>122</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">14x</span>
 <span class="cline-any cline-yes">14x</span>
 <span class="cline-any cline-yes">14x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -181,6 +187,11 @@
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -191,6 +202,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -292,20 +304,26 @@ const midtransClient = require('midtrans-client')
 const axios = require('axios')
 &nbsp;
 class OrderController {
-  static async createOrder (req, res, next) {
+  static async createOrder (req, res, next) {   //disini minta req.body.date = '2021-01-26'
     try {
       const findTeacher = await Teacher.findByPk(req.params.id)
       if (findTeacher) {
-        const payload = {
-          StudentId : req.loginStudent.id,
-          TeacherId : findTeacher.id,
-          subject : req.body.subject,
-          distance : +req.body.distance,
-          total_price : (+req.body.distance * 5000) + findTeacher.price,
-          date: req.body.date,
+        const findOrder = await Order.findAll({ where: {TeacherId: findTeacher.id} })
+        const filterOrder = findOrder.filter(order =&gt; order.date == req.body.date)
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (findOrder &amp;&amp; filterOrder.length) {
+<span class="cstat-no" title="statement not covered" >          throw {status: 400, message: `Date has been ordered. Please choose other date !!!`}</span>
+        } else {
+          const payload = {
+            StudentId : req.loginStudent.id,
+            TeacherId : findTeacher.id,
+            subject : req.body.subject,
+            distance : +req.body.distance,
+            total_price : (+req.body.distance * 5000) + findTeacher.price,
+            date: req.body.date,
+          }
+          const data = await Order.create(payload)
+          res.status(201).json(data)
         }
-        const data = await Order.create(payload)
-        res.status(201).json(data)
       } else throw {
         status: 404,
         message: `Data Not Found`
@@ -347,8 +365,8 @@ class OrderController {
       const findOrder = await Order.findByPk(req.params.id, {include: [Student, Teacher]})
       <span class="missing-if-branch" title="else path not taken" >E</span>if (findOrder) {
         const arrPromises = [
-          Order.update({ status: true}, { where: {id: req.params.id}, returning: true, include: [Student, Teacher]}),
-          Teacher.update({ income: findOrder.Teacher.income + findOrder.total_price }, {where: {id: findOrder.TeacherId}})
+          Order.update({ status: true}, { where: {id: req.params.id}, returning: true, include: [Student, Teacher], validate: false}),
+          Teacher.update({ income: findOrder.Teacher.income + findOrder.total_price }, {where: {id: findOrder.TeacherId}, validate: false})
         ]
         const finished = await Promise.all(arrPromises)
         let paramater = {
@@ -409,7 +427,7 @@ module.exports = OrderController</pre></td></tr></table></pre>
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Tue Jan 26 2021 00:01:31 GMT+0700 (Western Indonesia Time)
+                at Tue Jan 26 2021 13:14:55 GMT+0700 (Western Indonesia Time)
             </div>
         </div>
         <script src="../../prettify.js"></script>
