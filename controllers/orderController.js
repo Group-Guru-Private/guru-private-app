@@ -3,20 +3,26 @@ const midtransClient = require('midtrans-client')
 const axios = require('axios')
 
 class OrderController {
-  static async createOrder (req, res, next) {
+  static async createOrder (req, res, next) {   //disini minta req.body.date = '2021-01-26'
     try {
       const findTeacher = await Teacher.findByPk(req.params.id)
       if (findTeacher) {
-        const payload = {
-          StudentId : req.loginStudent.id,
-          TeacherId : findTeacher.id,
-          subject : req.body.subject,
-          distance : +req.body.distance,
-          total_price : (+req.body.distance * 5000) + findTeacher.price,
-          date: req.body.date,
+        const findOrder = await Order.findAll({ TeacherId: findTeacher.id })
+        const filterOrder = findOrder.filter(order => order.date == req.body.date)
+        if (findOrder && filterOrder.length) {
+          throw {status: 400, message: `Date has been ordered. Please choose other date !!!`}
+        } else {
+          const payload = {
+            StudentId : req.loginStudent.id,
+            TeacherId : findTeacher.id,
+            subject : req.body.subject,
+            distance : +req.body.distance,
+            total_price : (+req.body.distance * 5000) + findTeacher.price,
+            date: req.body.date,
+          }
+          const data = await Order.create(payload)
+          res.status(201).json(data)
         }
-        const data = await Order.create(payload)
-        res.status(201).json(data)
       } else throw {
         status: 404,
         message: `Data Not Found`
