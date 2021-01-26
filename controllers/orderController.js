@@ -7,7 +7,7 @@ class OrderController {
     try {
       const findTeacher = await Teacher.findByPk(req.params.id)
       if (findTeacher) {
-        const findOrder = await Order.findAll({ TeacherId: findTeacher.id })
+        const findOrder = await Order.findAll({ where: {TeacherId: findTeacher.id} })
         const filterOrder = findOrder.filter(order => order.date == req.body.date)
         if (findOrder && filterOrder.length) {
           throw {status: 400, message: `Date has been ordered. Please choose other date !!!`}
