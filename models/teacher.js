@@ -110,7 +110,7 @@ module.exports = (sequelize, DataTypes) => {
       }
     },
     rating: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.FLOAT,
       validate: {
         notEmpty: {
           msg: 'rating can not be empty'
