@@ -58,8 +58,8 @@ class OrderController {
       const findOrder = await Order.findByPk(req.params.id, {include: [Student, Teacher]})
       if (findOrder) {
         const arrPromises = [
-          Order.update({ status: true}, { where: {id: req.params.id}, returning: true, include: [Student, Teacher]}),
-          Teacher.update({ income: findOrder.Teacher.income + findOrder.total_price }, {where: {id: findOrder.TeacherId}})
+          Order.update({ status: true}, { where: {id: req.params.id}, returning: true, include: [Student, Teacher], validate: false}),
+          Teacher.update({ income: findOrder.Teacher.income + findOrder.total_price }, {where: {id: findOrder.TeacherId}, validate: false})
         ]
         const finished = await Promise.all(arrPromises)
         let paramater = {

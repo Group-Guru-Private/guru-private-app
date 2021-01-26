@@ -62,7 +62,7 @@ beforeAll( async (done) => {
         TeacherId: dataTeacher.id,
         subject: 'Mathematics',
         distance: 5,
-        date: '2020-02-02',
+        date: '2021-02-02',
         total_price: (5 * 5000) + dataTeacher.price
       }
       const result = await Order.create(payload)
