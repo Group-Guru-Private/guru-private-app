@@ -27,7 +27,7 @@ module.exports = (sequelize, DataTypes) => {
       }
     },
     distance: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.FLOAT,
       allowNull: false,
       validate: {
         notNull: { msg: `Distance can't be empty` },

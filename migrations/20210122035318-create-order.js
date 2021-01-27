@@ -18,7 +18,7 @@ module.exports = {
         type: Sequelize.STRING
       },
       distance: {
-        type: Sequelize.INTEGER
+        type: Sequelize.FLOAT
       },
       total_price: {
         type: Sequelize.INTEGER
