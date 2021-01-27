@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1611732543155" clover="3.2.0">
-  <project timestamp="1611732543155" name="All files">
+<coverage generated="1611737197840" clover="3.2.0">
+  <project timestamp="1611737197840" name="All files">
     <metrics statements="317" coveredstatements="301" conditionals="95" coveredconditionals="69" methods="53" coveredmethods="50" elements="465" coveredelements="420" complexity="0" loc="317" ncloc="317" packages="6" files="18" classes="18"/>
     <package name="guru-private-server">
       <metrics statements="13" coveredstatements="13" conditionals="2" coveredconditionals="1" methods="0" coveredmethods="0"/>

@@ -16,7 +16,7 @@ class OrderController {
             StudentId : req.loginStudent.id,
             TeacherId : findTeacher.id,
             subject : req.body.subject,
-            distance : +req.body.distance,
+            distance : parseFloat(req.body.distance),
             total_price: +req.body.total_price,
             // total_price : (+req.body.distance * 5000) + findTeacher.price,
             date: req.body.date,
