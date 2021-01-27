@@ -73,9 +73,9 @@ class TeacherController {
 
     static async editProfile (req, res, next) {
         try {
-            const { name, email, password, role, address, position, telpon_number, subjects, background, price, image_url } = req.body
+            const { name, address, position, telpon_number, background, price, image_url } = req.body
             const profileUpdated = await Teacher.update(
-            { name, email, password, role, address, position, telpon_number, subjects, background, price, image_url }, 
+            { name, address, position, telpon_number, background, price, image_url }, 
             {
                 where: {
                     id: req.params.id
