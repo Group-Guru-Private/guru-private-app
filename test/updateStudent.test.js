@@ -95,90 +95,90 @@ describe('EDIT Student PUT/students/edit/:id', () => {
     })
     
   })
-  describe('Failed edit: Validation Error (Required Email)', () => {
-    test('should response with error message', (done) => {
-      request(app)
-        .put(`/students/edit/${id}`)
-        .set('access_token', access_token)
-        .send({
+  // describe('Failed edit: Validation Error (Required Email)', () => {
+  //   test('should response with error message', (done) => {
+  //     request(app)
+  //       .put(`/students/edit/${id}`)
+  //       .set('access_token', access_token)
+  //       .send({
           
-            name: "Student2",
-            email: '',
-            password: '123456',
-            role: 'student',
-            address: 'Jl. Mangga harum manis',
-            position: [-6.200000, 106.816666],
-            telpon_number: '08123456789'
+  //           name: "Student2",
+  //           email: '',
+  //           password: '123456',
+  //           role: 'student',
+  //           address: 'Jl. Mangga harum manis',
+  //           position: [-6.200000, 106.816666],
+  //           telpon_number: '08123456789'
           
-        })
-        .end((err, res) => {
-          const {body, status} = res
-          if (err) {
-            return done(err)
-          }
-          expect(status).toBe(400)
-          expect(body).toHaveProperty('message',)
-          done()
-        })
-    })
-  })
+  //       })
+  //       .end((err, res) => {
+  //         const {body, status} = res
+  //         if (err) {
+  //           return done(err)
+  //         }
+  //         expect(status).toBe(400)
+  //         expect(body).toHaveProperty('message',)
+  //         done()
+  //       })
+  //   })
+  // })
 
-  describe('Failed edit: Validation Error (Invalid Email Format)', () => {
-    test('should response with error message', (done) => {
-      request(app)
-        .put(`/students/edit/${id}`)
-        .set('access_token', access_token)
-        .send({
+  // describe('Failed edit: Validation Error (Invalid Email Format)', () => {
+  //   test('should response with error message', (done) => {
+  //     request(app)
+  //       .put(`/students/edit/${id}`)
+  //       .set('access_token', access_token)
+  //       .send({
           
-            name: "Student2",
-            email: 'salah email',
-            password: '123456',
-            role: 'student',
-            address: 'Jl. Mangga harum manis',
-            position: [-6.200000, 106.816666],
-            telpon_number: '08123456789'
+  //           name: "Student2",
+  //           email: 'salah email',
+  //           password: '123456',
+  //           role: 'student',
+  //           address: 'Jl. Mangga harum manis',
+  //           position: [-6.200000, 106.816666],
+  //           telpon_number: '08123456789'
           
-        })
-        .end((err, res) => {
-          const {body, status} = res
-          if (err) {
-            return done(err)
-          }
-          expect(status).toBe(400)
-          expect(body).toHaveProperty('message',`Invalid email format`)
-          done()
-        })
-    })
-  })
+  //       })
+  //       .end((err, res) => {
+  //         const {body, status} = res
+  //         if (err) {
+  //           return done(err)
+  //         }
+  //         expect(status).toBe(400)
+  //         expect(body).toHaveProperty('message',`Invalid email format`)
+  //         done()
+  //       })
+  //   })
+  // })
 
 
-  describe('Failed edit: Validation Error (Required Role)', () => {
-    test('should response with error message', (done) => {
-      request(app)
-        .put(`/students/edit/${id}`)
-        .set('access_token', access_token)
-        .send({
+  // describe('Failed edit: Validation Error (Required Role)', () => {
+  //   test('should response with error message', (done) => {
+  //     request(app)
+  //       .put(`/students/edit/${id}`)
+  //       .set('access_token', access_token)
+  //       .send({
           
-            name: "Student2",
-            email: 'student2@mail.com',
-            password: '123456',
-            role: '',
-            address: 'Jl. Mangga harum manis',
-            position: [-6.200000, 106.816666],
-            telpon_number: '08123456789'
+  //           name: "Student2",
+  //           email: 'student2@mail.com',
+  //           password: '123456',
+  //           role: '',
+  //           address: 'Jl. Mangga harum manis',
+  //           position: [-6.200000, 106.816666],
+  //           telpon_number: '08123456789'
           
-        })
-        .end((err, res) => {
-          const {body, status} = res
-          if (err) {
-            return done(err)
-          }
-          expect(status).toBe(400)
-          expect(body).toHaveProperty('message',"Role is required")
-          done()
-        })
-    })
-  })
+  //       })
+  //       .end((err, res) => {
+  //         const {body, status} = res
+  //         if (err) {
+  //           return done(err)
+  //         }
+  //         expect(status).toBe(400)
+  //         expect(body).toHaveProperty('message',"Role is required")
+  //         done()
+  //       })
+  //   })
+  // })
 
   describe('Failed edit: Validation Error (Required Address)', () => {
     test('should response with error message', (done) => {
